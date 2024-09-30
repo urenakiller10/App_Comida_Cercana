@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "529101989387",
+    "project_id": "crowfunding-b4b61",
+    "storage_bucket": "crowfunding-b4b61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529101989387:android:bcf960aea8a8fc4baf090e",
+        "android_client_info": {
+          "package_name": "com.example.crowfunding"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd0rlCIT0FbRA1FenIhN8arTy-kSU_sfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

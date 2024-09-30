@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CrowFunding</string>
+
+    <!-- Opciones para el Spinner de área de trabajo en registrarse -->
+    <string-array name="areas_de_trabajo">
+        <item>Seleccione su área de trabajo</item>
+        <item>Desarrollo de Software</item>
+        <item>Redes y Telecomunicaciones</item>
+        <item>Seguridad Informática</item>
+        <item>Administración de Sistemas</item>
+        <item>Inteligencia Artificial</item>
+        <item>Soporte Técnico</item>
+    </string-array>
+</resources>
