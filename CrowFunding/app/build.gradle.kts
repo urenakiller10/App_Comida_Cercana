@@ -39,7 +39,8 @@ dependencies {
     // Añadir productos de Firebase sin especificar versiones
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-    //Autenticación con Google
+    // Firebase Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

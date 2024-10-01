@@ -22,6 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".registrarse"/>
+        <activity android:name=".iniciar_sesion"/>
+
     </application>
 
 </manifest>
