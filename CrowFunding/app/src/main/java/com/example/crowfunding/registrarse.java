@@ -109,7 +109,10 @@ public class registrarse extends AppCompatActivity {
                             userData.put("cedula", cedula);
                             userData.put("phone", phone);
                             userData.put("email", email);
-                            userData.put("initialMoney", initialMoney);
+
+                            // Convertir el saldo inicial a un número antes de guardarlo
+                            double initialMoneyValue = Double.parseDouble(initialMoney);
+                            userData.put("initialMoney", initialMoneyValue);
 
                             db.collection("users").document(userId)
                                     .set(userData)
@@ -138,6 +141,7 @@ public class registrarse extends AppCompatActivity {
                     }
                 });
     }
+
 
 
 

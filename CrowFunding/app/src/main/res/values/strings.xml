@@ -10,5 +10,11 @@
         <item>Administración de Sistemas</item>
         <item>Inteligencia Artificial</item>
         <item>Soporte Técnico</item>
+
+
     </string-array>
+
+    <string name="CrowFunding">CrowFunding</string>
+    <string name="open_drawer">Abrir menú</string>
+    <string name="close_drawer">Cerrar menú</string>
 </resources>

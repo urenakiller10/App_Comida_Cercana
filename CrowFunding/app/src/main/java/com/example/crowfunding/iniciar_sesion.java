@@ -27,28 +27,34 @@ public class iniciar_sesion extends AppCompatActivity {
     private Button loginButton;
     private TextView registerLink;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.view_iniciar_sesion);  // Asegúrate de que este sea el layout correcto
+        setContentView(R.layout.view_iniciar_sesion);
 
         // Inicializar FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
+        // Verificar si el usuario ya ha iniciado sesión
+        if (mAuth.getCurrentUser() != null) {
+            // El usuario ya está logueado, redirigir a la pantalla principal directamente
+            Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
+            startActivity(intent);
+            finish(); // Finaliza la actividad actual para que no vuelva a la pantalla de inicio de sesión
+            return;
+        }
+
         // Referenciar los elementos del layout
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login_button);  // Asegúrate de que este id sea correcto
+        loginButton = findViewById(R.id.login_button);
         registerLink = findViewById(R.id.register_link);
 
         // Configurar el listener para el botón de inicio de sesión
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Aquí agregamos la prueba básica con un Toast
-                Toast.makeText(iniciar_sesion.this, "Botón de iniciar sesión presionado", Toast.LENGTH_SHORT).show();
-
-                // Llamar al método para iniciar sesión
                 loginUser();
             }
         });
@@ -63,6 +69,7 @@ public class iniciar_sesion extends AppCompatActivity {
             }
         });
     }
+
 
     // Método para iniciar sesión
     private void loginUser() {
@@ -88,13 +95,15 @@ public class iniciar_sesion extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Inicio de sesión exitoso
                             Toast.makeText(iniciar_sesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+
                             // Redirigir a la pantalla principal
-                            Intent intent = new Intent(iniciar_sesion.this, MainActivity.class);
+                            Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
                             startActivity(intent);
                             finish(); // Finaliza la actividad actual para evitar volver con el botón atrás
                         } else {
                             // Si ocurre un error, mostrar un mensaje
-                            Toast.makeText(iniciar_sesion.this, "Error de inicio de sesión: " + task.getException().getMessage(),
+                            String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error desconocido";
+                            Toast.makeText(iniciar_sesion.this, "Error de inicio de sesión: " + errorMessage,
                                     Toast.LENGTH_LONG).show();
                         }
                     }
