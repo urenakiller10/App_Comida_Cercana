@@ -13,12 +13,16 @@
 
     <!-- Elemento de menú para "Configuraciones" -->
     <item
-        android:id="@+id/nav_settings"
-        android:title="Configuraciones"/>
+        android:id="@+id/nav_MisProyectos"
+        android:title="Mis Proyectos"/>
 
     <!-- Elemento de cartera" --><item
         android:id="@+id/nav_cartera"
         android:title="Cartera"/>
+
+    <!-- Elemento de ver registro donaciones" --><item
+    android:id="@+id/nav_donaciones"
+    android:title="Donaciones"/>
 
     <!-- Elemento de menú para "Cerrar Sesión" -->
     <item

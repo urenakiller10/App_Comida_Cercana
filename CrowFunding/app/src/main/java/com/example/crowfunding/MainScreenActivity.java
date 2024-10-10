@@ -52,8 +52,8 @@ public class MainScreenActivity extends AppCompatActivity {
                     Toast.makeText(MainScreenActivity.this, "Inicio seleccionado", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_profile) {
                     Toast.makeText(MainScreenActivity.this, "Perfil seleccionado", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.nav_settings) {
-                    Toast.makeText(MainScreenActivity.this, "Configuraciones seleccionadas", Toast.LENGTH_SHORT).show();
+                } else if (id == R.id.nav_MisProyectos) {
+                    Toast.makeText(MainScreenActivity.this, "Mis proyectos seleccionado", Toast.LENGTH_SHORT).show();
                 } else if (id == R.id.nav_cartera) {
                     Intent intent = new Intent(MainScreenActivity.this, cartera.class);
                     startActivity(intent);
