@@ -26,6 +26,10 @@
         <activity android:name=".MainScreenActivity"/>
         <activity android:name=".cartera"/>
         <activity android:name=".crearProyecto"/>
+        <activity android:name=".perfil"/>
+        <activity android:name=".misProyectos"/>
+        <activity android:name=".donaciones"/>
+
 
 
     </application>

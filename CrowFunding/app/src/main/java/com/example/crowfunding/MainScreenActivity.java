@@ -49,13 +49,29 @@ public class MainScreenActivity extends AppCompatActivity {
 
                 if (id == R.id.nav_home) {
                     Toast.makeText(MainScreenActivity.this, "Inicio seleccionado", Toast.LENGTH_SHORT).show();
+
+
                 } else if (id == R.id.nav_profile) {
                     Toast.makeText(MainScreenActivity.this, "Perfil seleccionado", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainScreenActivity.this,perfil.class);
+                    startActivity(intent);
+
+
                 } else if (id == R.id.nav_MisProyectos) {
                     Toast.makeText(MainScreenActivity.this, "Mis proyectos seleccionado", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainScreenActivity.this, misProyectos.class);
+                    startActivity(intent);
+
+
                 } else if (id == R.id.nav_cartera) {
                     Intent intent = new Intent(MainScreenActivity.this, cartera.class);
                     startActivity(intent);
+
+                } else if (id == R.id.nav_donaciones) {
+                    Intent intent = new Intent(MainScreenActivity.this,donaciones.class);
+                    startActivity(intent);
+
+
                 } else if (id == R.id.nav_logout) {
                     mAuth.signOut();
                     Intent intent = new Intent(MainScreenActivity.this, iniciar_sesion.class);
