@@ -25,6 +25,8 @@
         <activity android:name=".iniciar_sesion"/>
         <activity android:name=".MainScreenActivity"/>
         <activity android:name=".cartera"/>
+        <activity android:name=".crearProyecto"/>
+
 
     </application>
 
