@@ -12,6 +12,39 @@
         android:textSize="24sp"
         android:layout_gravity="center" />
 
-    <!-- Aquí puedes agregar los campos necesarios para crear un proyecto -->
+    <EditText
+        android:id="@+id/nombre_proyecto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Nombre del Proyecto" />
 
+    <EditText
+        android:id="@+id/descripcion_proyecto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Descripción" />
+
+    <EditText
+        android:id="@+id/fecha_limite"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Fecha Límite" />
+
+    <EditText
+        android:id="@+id/objetivo_financiacion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Objetivo de Financiación" />
+
+    <Spinner
+        android:id="@+id/spinner_categoria"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_crear_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Proyecto"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

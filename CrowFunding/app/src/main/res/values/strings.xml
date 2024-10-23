@@ -17,4 +17,15 @@
     <string name="CrowdFunding">CrowFunding</string>
     <string name="open_drawer">Abrir menú</string>
     <string name="close_drawer">Cerrar menú</string>
+
+    <string-array name="categorias">
+        <item>Educación</item>
+        <item>Salud</item>
+        <item>Familia</item>
+        <item>Deporte</item>
+    </string-array>
+
+
+
+
 </resources>
