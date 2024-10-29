@@ -3,48 +3,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center">
 
+    <!-- Título -->
     <TextView
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Crear Proyecto"
         android:textSize="24sp"
-        android:layout_gravity="center" />
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
 
-    <EditText
-        android:id="@+id/nombre_proyecto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Nombre del Proyecto" />
-
-    <EditText
-        android:id="@+id/descripcion_proyecto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Descripción" />
-
-    <EditText
-        android:id="@+id/fecha_limite"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Fecha Límite" />
-
-    <EditText
-        android:id="@+id/objetivo_financiacion"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Objetivo de Financiación" />
-
-    <Spinner
-        android:id="@+id/spinner_categoria"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btn_crear_proyecto"
+    <!-- Contenedor del formulario -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crear Proyecto"
-        android:layout_marginTop="16dp" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_border">
+
+        <!-- Nombre del Proyecto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Proyecto" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Nombre del Proyecto"
+            android:inputType="text" />
+
+        <!-- Descripción -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Descripción"
+            android:inputType="textMultiLine" />
+
+        <!-- Mensaje para el donador -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mensaje para el donador" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Mensaje para el donador"
+            android:inputType="textMultiLine" />
+
+        <!-- Cantidad de dinero que se desea -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Objetivo de Financiación" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Objetivo de Financiación"
+            android:inputType="numberDecimal" />
+
+        <!-- Tipo de proyecto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de proyecto" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Tipo de proyecto"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <!-- Botones de acción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volver al inicio"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
 </LinearLayout>

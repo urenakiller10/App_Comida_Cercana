@@ -11,94 +11,109 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="Editar Proyecto"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="24dp"
         android:gravity="center" />
 
     <!-- Contenedor del formulario -->
+
+    <!-- Botones de acción -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@drawable/rounded_border">
+        android:padding="16dp">
 
-        <!-- Correo -->
+        <!-- Nombre del Proyecto -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Correo" />
+            android:text="Nombre del Proyecto" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Nombre del Proyecto"
+            android:inputType="text" />
+
+        <!-- Descripción -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginBottom="16dp"
-            android:hint="Correo"
-            android:inputType="textEmailAddress" />
+            android:hint="Descripción"
+            android:inputType="textMultiLine" />
 
-        <!-- Cédula -->
+        <!-- Mensaje para el donador -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cédula" />
+            android:text="Mensaje para el donador" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="58dp"
             android:layout_marginBottom="16dp"
-            android:hint="Cédula"
-            android:inputType="number" />
+            android:hint="Mensaje para el donador"
+            android:inputType="textMultiLine" />
 
-        <!-- Contraseña -->
+        <!-- Cantidad de dinero que se desea -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contraseña" />
+            android:text="Objetivo de Financiación" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="57dp"
             android:layout_marginBottom="16dp"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
-
-        <!-- Área de trabajo -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Área de trabajo" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Área de trabajo"
-            android:inputType="text" />
-
-        <!-- Cantidad de dinero inicial -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cantidad de dinero inicial" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Cantidad de dinero"
+            android:hint="Objetivo de Financiación"
             android:inputType="numberDecimal" />
+
+        <!-- Tipo de proyecto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de proyecto" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Tipo de proyecto"
+            android:inputType="text" />
     </LinearLayout>
 
-    <!-- Botón de Registrarse -->
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="24dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volver al inicio"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 
 </LinearLayout>
