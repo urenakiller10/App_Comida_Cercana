@@ -1,0 +1,28 @@
+<!-- item_donation.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Nombre del proyecto y monto donado -->
+    <TextView
+        android:id="@+id/tvProjectNameAndAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Uber - ha donado $1000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black" />
+
+    <!-- Fecha y descripción de la donación -->
+    <TextView
+        android:id="@+id/tvDonationDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="El 20/08/2024, realizaste una donación"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" />
+</LinearLayout>
