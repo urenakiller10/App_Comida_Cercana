@@ -1,14 +1,19 @@
 package com.example.crowfunding;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.ArrayAdapter;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.crowfunding.R; // Importa el archivo R de tu paquete
 
+import com.example.crowfunding.Proyecto;
+import com.example.crowfunding.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class crearProyecto extends AppCompatActivity {
 
@@ -17,6 +22,8 @@ public class crearProyecto extends AppCompatActivity {
     private EditText fechaLimite;
     private EditText objetivoFinanciacion;
     private Spinner spinnerCategoria;
+
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,26 +37,50 @@ public class crearProyecto extends AppCompatActivity {
         objetivoFinanciacion = findViewById(R.id.objetivo_financiacion);
         spinnerCategoria = findViewById(R.id.spinner_categoria);
 
-        // Configurar el Spinner (ComboBox) para categorías
+        // Configurar el Spinner para categorías
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.categorias, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategoria.setAdapter(adapter);
 
-        // Inicializar el botón para crear el proyecto
+        // Inicializar Firestore
+        db = FirebaseFirestore.getInstance();
+
+        // Configurar el botón para crear el proyecto
         Button crearProyectoButton = findViewById(R.id.btn_crear_proyecto);
         crearProyectoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Aquí puedes manejar la lógica para crear el proyecto
-                // Por ejemplo, obtener los valores de los EditText y el Spinner
-                String nombre = nombreProyecto.getText().toString();
-                String descripcion = descripcionProyecto.getText().toString();
-                String fecha = fechaLimite.getText().toString();
-                String objetivo = objetivoFinanciacion.getText().toString();
+                // Obtener los valores de los campos
+                String nombre = nombreProyecto.getText().toString().trim();
+                String descripcion = descripcionProyecto.getText().toString().trim();
+                String fecha = fechaLimite.getText().toString().trim();
+                String objetivo = objetivoFinanciacion.getText().toString().trim();
                 String categoria = spinnerCategoria.getSelectedItem().toString();
 
-                // Lógica para procesar el nuevo proyecto (por ejemplo, guardarlo en Firebase)
+                Log.d("CrearProyecto", "Botón presionado");
+
+                if (!nombre.isEmpty() && !descripcion.isEmpty() && !fecha.isEmpty() && !objetivo.isEmpty() && !categoria.isEmpty()) {
+                    // Crear un nuevo objeto Proyecto
+                    Proyecto proyecto = new Proyecto(nombre, descripcion, fecha, objetivo, categoria);
+
+                    Log.d("CrearProyecto", "Datos de proyecto obtenidos correctamente");
+
+                    // Guardar el proyecto en Firestore
+                    db.collection("proyectos").add(proyecto)
+                            .addOnSuccessListener(documentReference -> {
+                                Log.d("CrearProyecto", "Proyecto creado con ID: " + documentReference.getId());
+                                Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
+                                startActivity(intent);
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e("CrearProyecto", "Error al crear el proyecto", e);
+                                Toast.makeText(crearProyecto.this, "Error al crear el proyecto", Toast.LENGTH_SHORT).show();
+                            });
+                } else {
+                    Toast.makeText(crearProyecto.this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
