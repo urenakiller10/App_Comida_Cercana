@@ -68,8 +68,8 @@ public class cartera extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Ir a la pantalla de historial de donaciones
-                // Intent intent = new Intent(cartera.this, HistorialDonacionesActivity.class);
-                // startActivity(intent);
+               // Intent intent = new Intent(cartera.this, donaciones.class);
+                //startActivity(intent);
             }
         });
     }

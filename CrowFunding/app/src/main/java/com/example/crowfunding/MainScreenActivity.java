@@ -1,12 +1,10 @@
 package com.example.crowfunding;
 import com.example.crowfunding.R;
 
-
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainScreenActivity extends AppCompatActivity {
 
@@ -50,13 +49,29 @@ public class MainScreenActivity extends AppCompatActivity {
 
                 if (id == R.id.nav_home) {
                     Toast.makeText(MainScreenActivity.this, "Inicio seleccionado", Toast.LENGTH_SHORT).show();
+
+
                 } else if (id == R.id.nav_profile) {
                     Toast.makeText(MainScreenActivity.this, "Perfil seleccionado", Toast.LENGTH_SHORT).show();
-                } else if (id == R.id.nav_settings) {
-                    Toast.makeText(MainScreenActivity.this, "Configuraciones seleccionadas", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainScreenActivity.this,perfil.class);
+                    startActivity(intent);
+
+
+                } else if (id == R.id.nav_MisProyectos) {
+                    Toast.makeText(MainScreenActivity.this, "Mis proyectos seleccionado", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainScreenActivity.this, misProyectos.class);
+                    startActivity(intent);
+
+
                 } else if (id == R.id.nav_cartera) {
                     Intent intent = new Intent(MainScreenActivity.this, cartera.class);
                     startActivity(intent);
+
+                } else if (id == R.id.nav_donaciones) {
+                    Intent intent = new Intent(MainScreenActivity.this,donaciones.class);
+                    startActivity(intent);
+
+
                 } else if (id == R.id.nav_logout) {
                     mAuth.signOut();
                     Intent intent = new Intent(MainScreenActivity.this, iniciar_sesion.class);
@@ -70,7 +85,19 @@ public class MainScreenActivity extends AppCompatActivity {
             }
 
         });
+
+
+        // Buscar el botón en el layout
+        Button createProjectButton = findViewById(R.id.create_project_button);
+
+        // Configurar el evento onClick para el botón
+        createProjectButton.setOnClickListener(view -> {
+            // Crear un Intent para abrir la actividad ViewCrearProyecto
+            Intent intent = new Intent(MainScreenActivity.this, crearProyecto.class);
+            startActivity(intent);
+        });
     }
+
 
     @Override
     public void onBackPressed() {
