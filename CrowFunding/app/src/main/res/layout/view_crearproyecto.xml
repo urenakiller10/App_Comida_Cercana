@@ -54,19 +54,21 @@
             android:inputType="textMultiLine" />
 
         <!-- Mensaje para el donador -->
+
+        <!-- Cantidad de dinero que se desea -->
         <TextView
+            android:id="@+id/fecha_limite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mensaje para el donador" />
+            android:text="Fecha limite del financiamiento " />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginBottom="16dp"
-            android:hint="Mensaje para el donador"
+            android:hint="Fecha limite del financiamiento"
             android:inputType="textMultiLine" />
 
-        <!-- Cantidad de dinero que se desea -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

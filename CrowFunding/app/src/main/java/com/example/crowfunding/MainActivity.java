@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.view_iniciar_sesion);
 
         // Referenciar los elementos del layout
-        loginButton = findViewById(R.id.login_button);
-        registerLink = findViewById(R.id.register_link);
+        loginButton = findViewById(R.id.btnIniciarSesion);
+        registerLink = findViewById(R.id.btnRegistrarse);
 
         // Listener para el botón de registro
         registerLink.setOnClickListener(new View.OnClickListener() {

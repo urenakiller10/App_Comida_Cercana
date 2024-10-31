@@ -17,12 +17,27 @@
         android:gravity="center" />
 
     <!-- Contenedor del formulario -->
+
+    <!-- Botón de Registrarse -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="571dp"
+        android:background="@drawable/rounded_border"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@drawable/rounded_border">
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Nombre"
+            android:inputType="text" />
 
         <!-- Correo -->
         <TextView
@@ -39,21 +54,6 @@
             android:hint="Correo"
             android:inputType="textEmailAddress" />
 
-        <!-- Cédula -->
-        <TextView
-            android:id="@+id/tvCedula"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cédula" />
-
-        <EditText
-            android:id="@+id/etCedula"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Cédula"
-            android:inputType="number" />
-
         <!-- Contraseña -->
         <TextView
             android:id="@+id/tvContrasena"
@@ -68,6 +68,21 @@
             android:layout_marginBottom="16dp"
             android:hint="Contraseña"
             android:inputType="textPassword" />
+
+        <!-- Cédula -->
+        <TextView
+            android:id="@+id/tvCedula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmar Contraseña" />
+
+        <EditText
+            android:id="@+id/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Confirmar Contraseña"
+            android:inputType="number" />
 
         <!-- Área de trabajo -->
         <TextView
@@ -100,14 +115,13 @@
             android:inputType="numberDecimal" />
     </LinearLayout>
 
-    <!-- Botón de Registrarse -->
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="24dp" />
+        android:text="Registrarse"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

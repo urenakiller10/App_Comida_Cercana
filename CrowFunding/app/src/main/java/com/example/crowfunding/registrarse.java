@@ -52,9 +52,7 @@ public class registrarse extends AppCompatActivity {
         confirmPasswordEditText = findViewById(R.id.confirm_password);
         registerButton = findViewById(R.id.btnRegistrarse);
         nameEditText = findViewById(R.id.name);
-        cedulaEditText = findViewById(R.id.evCedula);
-        phoneEditText = findViewById(R.id.phone);
-        initialMoneyEditText = findViewById(R.id.initial_money);
+        initialMoneyEditText = findViewById(R.id.etDineroInicial);
 
         // Listener para el botón de registro
         registerButton.setOnClickListener(new View.OnClickListener() {

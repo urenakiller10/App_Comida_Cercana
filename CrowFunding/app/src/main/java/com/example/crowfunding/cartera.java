@@ -39,7 +39,6 @@ public class cartera extends AppCompatActivity {
 
         // Referenciar los elementos del layout
         saldoEditText = findViewById(R.id.saldo_editText);
-        donacionesEditText = findViewById(R.id.donaciones_editText);
         traerDineroEditText = findViewById(R.id.traer_dinero_editText);
         traerDineroButton = findViewById(R.id.traer_dinero_button);
         historialDonacionesButton = findViewById(R.id.historial_donaciones_button);
