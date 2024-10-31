@@ -1,57 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="#FFFFFF">
+    android:padding="16dp"
+    android:gravity="center">
 
-    <!-- Campo para el correo electrónico -->
-
-    <!-- Campo para la contraseña -->
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Correo electrónico"
-        android:inputType="textEmailAddress"
-        android:padding="12dp" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Botón para iniciar sesión -->
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        android:backgroundTint="@android:color/black"
-        android:textColor="@android:color/white"
-        android:padding="12dp" />
-
-    <!-- Texto para registrarse (clicable) -->
+    <!-- Título -->
     <TextView
-        android:id="@+id/register_link"
+        android:id="@+id/tvTituloIniciarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:clickable="true"
-        android:padding="16dp"
-        android:text="¿No tienes cuenta? Regístrate"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:text="Iniciar Sesión"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
 
+    <!-- Contenedor del formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/rounded_border"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Correo -->
+        <TextView
+            android:id="@+id/tvEtiquetaCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo" />
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Correo"
+            android:inputType="textEmailAddress" />
+
+        <!-- Contraseña -->
+        <TextView
+            android:id="@+id/tvEtiquetaContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña" />
+
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <!-- ¿Olvidaste tu contraseña? -->
+        <TextView
+            android:id="@+id/tvOlvidasteContrasena"
+            android:layout_width="344dp"
+            android:layout_height="52dp"
+            android:layout_gravity="end"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="#0000FF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Botón de Iniciar Sesión -->
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Iniciar Sesión"
+        android:textColor="#FFFFFF" />
+
+    <!-- Texto de Registro -->
+    <TextView
+        android:id="@+id/tvNoTienesCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="¿No tienes cuenta?"
+        android:textSize="14sp" />
+
+    <!-- Botón de Registrarse -->
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:backgroundTint="#FF9800"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>

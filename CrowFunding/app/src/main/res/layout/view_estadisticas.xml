@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloEstadisticas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estadísticas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
+    <!-- Contenedor de estadísticas -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_border">
+
+        <!-- Cantidad de proyectos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvCantidadProyectos"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:text="Cantidad de proyectos:" />
+
+            <TextView
+                android:id="@+id/tvValorCantidadProyectos"
+                android:layout_width="60dp"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="10" />
+        </LinearLayout>
+
+        <!-- Total de usuarios -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvTotalUsuarios"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total de usuarios:" />
+
+            <TextView
+                android:id="@+id/tvValorTotalUsuarios"
+                android:layout_width="60dp"
+                android:layout_height="56dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="20" />
+        </LinearLayout>
+
+        <!-- Cantidad de donaciones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvCantidadDonaciones"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cantidad de donaciones:" />
+
+            <TextView
+                android:id="@+id/tvValorCantidadDonaciones"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="100" />
+        </LinearLayout>
+
+        <!-- Total dinero donado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvTotalDineroDonado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total dinero donado:" />
+
+            <TextView
+                android:id="@+id/tvValorTotalDineroDonado"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="20000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón de regreso -->
+    <Button
+        android:id="@+id/btnVolverInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver al inicio"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

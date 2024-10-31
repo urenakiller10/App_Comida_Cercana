@@ -47,12 +47,12 @@ public class registrarse extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Referenciar los elementos del layout (los campos de texto y el botón)
-        emailEditText = findViewById(R.id.email);
-        passwordEditText = findViewById(R.id.password);
+        emailEditText = findViewById(R.id.etCorreo);
+        passwordEditText = findViewById(R.id.etContrasena);
         confirmPasswordEditText = findViewById(R.id.confirm_password);
-        registerButton = findViewById(R.id.register_button);
+        registerButton = findViewById(R.id.btnRegistrarse);
         nameEditText = findViewById(R.id.name);
-        cedulaEditText = findViewById(R.id.cedula);
+        cedulaEditText = findViewById(R.id.evCedula);
         phoneEditText = findViewById(R.id.phone);
         initialMoneyEditText = findViewById(R.id.initial_money);
 
