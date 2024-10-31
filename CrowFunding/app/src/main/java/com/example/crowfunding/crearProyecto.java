@@ -31,6 +31,7 @@ public class crearProyecto extends AppCompatActivity {
         setContentView(R.layout.view_crearproyecto);
 
         // Inicializar los componentes
+
         nombreProyecto = findViewById(R.id.nombre_proyecto);
         descripcionProyecto = findViewById(R.id.descripcion_proyecto);
         fechaLimite = findViewById(R.id.fecha_limite);

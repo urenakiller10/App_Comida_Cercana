@@ -49,12 +49,11 @@ public class registrarse extends AppCompatActivity {
         // Referenciar los elementos del layout (los campos de texto y el botón)
         emailEditText = findViewById(R.id.etCorreo);
         passwordEditText = findViewById(R.id.etContrasena);
-        confirmPasswordEditText = findViewById(R.id.confirm_password);
+        confirmPasswordEditText = findViewById(R.id.etConfirmarContrasena);
         registerButton = findViewById(R.id.btnRegistrarse);
-        nameEditText = findViewById(R.id.name);
+        nameEditText = findViewById(R.id.etNombre);
         cedulaEditText = findViewById(R.id.evCedula);
-        phoneEditText = findViewById(R.id.phone);
-        initialMoneyEditText = findViewById(R.id.initial_money);
+        initialMoneyEditText = findViewById(R.id.etDineroInicial);
 
         // Listener para el botón de registro
         registerButton.setOnClickListener(new View.OnClickListener() {
