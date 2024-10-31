@@ -25,8 +25,8 @@
         android:textSize="18sp"
         android:layout_marginBottom="8dp" />
 
-    <TextView
-        android:id="@+id/saldoText"
+    <EditText
+        android:id="@+id/saldo_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0.00"
@@ -42,7 +42,7 @@
         android:layout_marginBottom="8dp" />
 
     <EditText
-        android:id="@+id/amountEditText"
+        android:id="@+id/traer_dinero_editText"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
@@ -50,7 +50,7 @@
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/withdrawButton"
+        android:id="@+id/traer_dinero_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Traer dinero"
@@ -60,7 +60,7 @@
 
     <!-- Botón de Historial de Donaciones -->
     <Button
-        android:id="@+id/historyButton"
+        android:id="@+id/historial_donaciones_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Historial de Donaciones"
