@@ -57,12 +57,12 @@
 
         <!-- Cantidad de dinero que se desea -->
         <TextView
-            android:id="@+id/fecha_limite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha limite del financiamiento " />
 
         <EditText
+            android:id="@+id/fecha_limite"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginBottom="16dp"
