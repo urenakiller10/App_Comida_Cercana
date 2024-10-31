@@ -18,9 +18,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class cartera extends AppCompatActivity {
 
-    private EditText saldoEditText, donacionesEditText, traerDineroEditText;
+    private EditText saldoEditText, traerDineroEditText;
     private Button traerDineroButton, historialDonacionesButton;
-    private double saldo = 0.0;
+    private double saldo = 0.0; // Mantener saldo como double
     private int cantidadDonaciones = 0;
 
     private FirebaseAuth mAuth;
@@ -52,7 +52,7 @@ public class cartera extends AppCompatActivity {
             public void onClick(View v) {
                 String cantidadStr = traerDineroEditText.getText().toString();
                 if (!cantidadStr.isEmpty()) {
-                    double cantidad = Double.parseDouble(cantidadStr);
+                    double cantidad = Double.parseDouble(cantidadStr); // Convertir a double
                     saldo += cantidad; // Actualizar saldo localmente
                     actualizarCampos();
                     actualizarSaldoEnFirestore(saldo); // Actualizar saldo en Firestore
@@ -67,8 +67,8 @@ public class cartera extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Ir a la pantalla de historial de donaciones
-               // Intent intent = new Intent(cartera.this, donaciones.class);
-                //startActivity(intent);
+                // Intent intent = new Intent(cartera.this, donaciones.class);
+                // startActivity(intent);
             }
         });
     }
@@ -113,7 +113,7 @@ public class cartera extends AppCompatActivity {
 
     // Actualizar los campos de la interfaz con el saldo y la cantidad de donaciones
     private void actualizarCampos() {
-        saldoEditText.setText(String.format("%.2f", saldo));
-        donacionesEditText.setText(String.valueOf(cantidadDonaciones));
+        saldoEditText.setText(String.format("$%.2f", saldo)); // Formatear el saldo como moneda
+        // donacionesEditText.setText(String.valueOf(cantidadDonaciones)); // Si lo necesitas, asegúrate de incluir el EditText correspondiente en el XML
     }
 }
