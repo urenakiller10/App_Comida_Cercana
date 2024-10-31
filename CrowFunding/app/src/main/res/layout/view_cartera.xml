@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#FFFFFF">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/cartera_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mi Cartera"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Layout para los campos de saldo y donaciones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <!-- Campo Mi saldo -->
+        <EditText
+            android:id="@+id/saldo_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Mi saldo"
+            android:text="0.00"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="@android:color/white" />
+
+        <!-- Campo Cantidad de donaciones -->
+        <EditText
+            android:id="@+id/donaciones_editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Cantidad de donaciones"
+            android:text="0"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Campo para ingresar el dinero a traer -->
+    <EditText
+        android:id="@+id/traer_dinero_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad a traer"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:background="@android:color/white" />
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <!-- Botón Traer Dinero -->
+        <Button
+            android:id="@+id/traer_dinero_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Traer Dinero"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp"
+            android:padding="12dp" />
+
+        <!-- Botón Historial de Donaciones -->
+        <Button
+            android:id="@+id/historial_donaciones_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial Donaciones"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textColor="@android:color/white"
+            android:padding="12dp" />
+    </LinearLayout>
+</LinearLayout>

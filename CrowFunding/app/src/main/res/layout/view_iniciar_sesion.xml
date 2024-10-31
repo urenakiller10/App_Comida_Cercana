@@ -9,16 +9,18 @@
     android:background="#FFFFFF">
 
     <!-- Campo para el correo electrónico -->
+
+    <!-- Campo para la contraseña -->
+
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:hint="Correo electrónico"
         android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:padding="12dp" />
 
-    <!-- Campo para la contraseña -->
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -43,13 +45,13 @@
         android:id="@+id/register_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿No tienes cuenta? Regístrate"
-        android:textColor="@color/black"
-        android:clickable="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
-        android:textSize="16sp"
-        android:padding="16dp" />
+        android:clickable="true"
+        android:padding="16dp"
+        android:text="¿No tienes cuenta? Regístrate"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 
 </LinearLayout>

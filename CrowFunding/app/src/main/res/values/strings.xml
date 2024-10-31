@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CrowFunding</string>
+    <string name="app_name">CrowdFunding</string>
 
     <!-- Opciones para el Spinner de área de trabajo en registrarse -->
     <string-array name="areas_de_trabajo">
@@ -10,5 +10,22 @@
         <item>Administración de Sistemas</item>
         <item>Inteligencia Artificial</item>
         <item>Soporte Técnico</item>
+
+
     </string-array>
+
+    <string name="CrowdFunding">CrowFunding</string>
+    <string name="open_drawer">Abrir menú</string>
+    <string name="close_drawer">Cerrar menú</string>
+
+    <string-array name="categorias">
+        <item>Educación</item>
+        <item>Salud</item>
+        <item>Familia</item>
+        <item>Deporte</item>
+    </string-array>
+
+
+
+
 </resources>

@@ -38,5 +38,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Listener para el botón de inicio de sesión
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirigir a la pantalla de iniciar sesión
+                Intent intent = new Intent(MainActivity.this, iniciar_sesion.class);
+                startActivity(intent);
+            }
+        });
     }
 }

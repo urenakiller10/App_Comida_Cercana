@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Proyecto"
+        android:textSize="24sp"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/nombre_proyecto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Nombre del Proyecto" />
+
+    <EditText
+        android:id="@+id/descripcion_proyecto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Descripción" />
+
+    <EditText
+        android:id="@+id/fecha_limite"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Fecha Límite" />
+
+    <EditText
+        android:id="@+id/objetivo_financiacion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Objetivo de Financiación" />
+
+    <Spinner
+        android:id="@+id/spinner_categoria"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_crear_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Proyecto"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
