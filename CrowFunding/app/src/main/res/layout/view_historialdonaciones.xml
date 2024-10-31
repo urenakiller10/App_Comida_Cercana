@@ -1,4 +1,3 @@
-<!-- activity_historial_donaciones.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -9,6 +8,7 @@
 
     <!-- Título -->
     <TextView
+        android:id="@+id/tvTituloHistorialDonaciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Historial de Donaciones"
@@ -19,7 +19,7 @@
 
     <!-- Barra de búsqueda -->
     <EditText
-        android:id="@+id/etSearch"
+        android:id="@+id/etFiltroDonaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Filtro"
@@ -31,7 +31,7 @@
 
     <!-- RecyclerView para la lista de donaciones -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvDonationsHistory"
+        android:id="@+id/rvListaHistorialDonaciones"
         android:layout_width="match_parent"
         android:layout_height="556dp"
         android:scrollbars="vertical" />
