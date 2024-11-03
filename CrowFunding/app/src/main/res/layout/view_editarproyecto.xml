@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
 
     <!-- Título -->
     <TextView
-        android:id="@+id/titleText"
+        android:id="@+id/tvTituloEditarProyecto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Editar Proyecto"
@@ -19,7 +18,6 @@
 
     <!-- Contenedor del formulario -->
 
-    <!-- Botones de acción -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,11 +27,13 @@
 
         <!-- Nombre del Proyecto -->
         <TextView
+            android:id="@+id/tvNombreProyecto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre del Proyecto" />
 
         <EditText
+            android:id="@+id/etNombreProyecto"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginBottom="16dp"
@@ -42,11 +42,13 @@
 
         <!-- Descripción -->
         <TextView
+            android:id="@+id/tvDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripción" />
 
         <EditText
+            android:id="@+id/etDescripcion"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginBottom="16dp"
@@ -55,24 +57,28 @@
 
         <!-- Mensaje para el donador -->
         <TextView
+            android:id="@+id/tvMensajeDonador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mensaje para el donador" />
 
         <EditText
+            android:id="@+id/etMensajeDonador"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginBottom="16dp"
             android:hint="Mensaje para el donador"
             android:inputType="textMultiLine" />
 
-        <!-- Cantidad de dinero que se desea -->
+        <!-- Objetivo de Financiación -->
         <TextView
+            android:id="@+id/tvObjetivoFinanciacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Objetivo de Financiación" />
 
         <EditText
+            android:id="@+id/etObjetivoFinanciacion"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
@@ -81,11 +87,13 @@
 
         <!-- Tipo de proyecto -->
         <TextView
+            android:id="@+id/tvTipoProyecto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tipo de proyecto" />
 
         <EditText
+            android:id="@+id/etTipoProyecto"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_marginBottom="16dp"
@@ -93,6 +101,7 @@
             android:inputType="text" />
     </LinearLayout>
 
+    <!-- Botones de acción -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,14 +110,14 @@
         android:layout_marginTop="16dp">
 
         <Button
-            android:id="@+id/backButton"
+            android:id="@+id/btnVolverInicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Volver al inicio"
             android:layout_marginEnd="8dp" />
 
         <Button
-            android:id="@+id/editButton"
+            android:id="@+id/btnEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Editar"

@@ -41,6 +41,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     // Firebase Firestore
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.android.gms:play-services-auth:20.5.0") // Verifica la versión más reciente
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

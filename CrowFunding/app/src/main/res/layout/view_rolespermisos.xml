@@ -1,4 +1,3 @@
-<!-- activity_roles_permisos.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,6 +9,7 @@
 
     <!-- Título -->
     <TextView
+        android:id="@+id/tvTituloRolesPermisos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Roles y Permisos"
@@ -27,13 +27,14 @@
         android:paddingBottom="8dp">
 
         <ImageView
+            android:id="@+id/imgIconoUsuario"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/baseline_person_outline_24"
-            android:contentDescription="User Icon" />
+            android:contentDescription="Ícono de Usuario" />
 
         <TextView
-            android:id="@+id/tvUserName"
+            android:id="@+id/tvNombreUsuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -50,14 +51,10 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-        <Spinner
-            android:id="@+id/spinnerRoles"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+
 
         <Button
-            android:id="@+id/btnAddRole"
+            android:id="@+id/btnAgregarRol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar"
@@ -65,7 +62,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRoles"
+        android:id="@+id/rvListaRoles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -79,14 +76,10 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-        <Spinner
-            android:id="@+id/spinnerPermissions"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+
 
         <Button
-            android:id="@+id/btnAddPermission"
+            android:id="@+id/btnAgregarPermiso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar"
@@ -94,14 +87,14 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPermissions"
+        android:id="@+id/rvListaPermisos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical" />
 
     <!-- Botón de activar/desactivar cuenta -->
     <Button
-        android:id="@+id/btnToggleAccount"
+        android:id="@+id/btnToggleCuenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Activar/Desactivar Cuenta"
