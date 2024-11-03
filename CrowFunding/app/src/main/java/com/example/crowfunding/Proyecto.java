@@ -7,6 +7,7 @@ public class Proyecto {
     private String descripcion;
     private String fechaCreacion;
     private String fechaLimite;
+    private float dineroDonado;
     private String objetivoFinanciacion;
     private String categoria;
 
@@ -15,7 +16,7 @@ public class Proyecto {
     }
 
     // Constructor
-    public Proyecto(String idUser, String nombre, String descripcion, String fechaCreacion, String fechaLimite, String objetivoFinanciacion, String categoria) {
+    public Proyecto(String idUser, String nombre, String descripcion, String fechaCreacion, String fechaLimite, String objetivoFinanciacion, String categoria, float dineroDonado) {
         this.idUser = idUser;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -23,6 +24,7 @@ public class Proyecto {
         this.fechaLimite = fechaLimite;
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
+        this.dineroDonado = dineroDonado;
     }
 
     // Getters y Setters
@@ -66,6 +68,9 @@ public class Proyecto {
         this.objetivoFinanciacion = objetivoFinanciacion;
     }
 
+    public String getFechaCreacion(){ return fechaCreacion;}
+
+
     public String getCategoria() {
         return categoria;
     }
@@ -74,20 +79,5 @@ public class Proyecto {
         this.categoria = categoria;
     }
 
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(String fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
+    public float getDineroActual() {return dineroDonado;}
 }

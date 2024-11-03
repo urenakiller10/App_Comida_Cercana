@@ -57,15 +57,9 @@ public class crearProyecto extends AppCompatActivity {
                 // Obtener los valores de los campos
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
-                String idUser = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : "";
+                String idUser = auth.getCurrentUser().getUid();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                 String fechaCreacion = sdf.format(Calendar.getInstance().getTime());
-
-// Revisa si idUser y fechaCreacion tienen los valores esperados
-                Log.d("CrearProyecto", "ID de usuario: " + idUser);
-                Log.d("CrearProyecto", "Fecha de creación: " + fechaCreacion);
-
-
                 String nombre = nombreProyecto.getText().toString().trim();
                 String descripcion = descripcionProyecto.getText().toString().trim();
                 String fecha = fechaLimite.getText().toString().trim();
@@ -76,7 +70,7 @@ public class crearProyecto extends AppCompatActivity {
 
                 if (!nombre.isEmpty() && !descripcion.isEmpty() && !fecha.isEmpty() && !objetivo.isEmpty() && !categoria.isEmpty()) {
                     // Crear un nuevo objeto Proyecto
-                    Proyecto proyecto = new Proyecto(idUser, nombre, descripcion, fechaCreacion, fecha, objetivo, categoria);
+                    Proyecto proyecto = new Proyecto(idUser, nombre, descripcion, fechaCreacion, fecha, objetivo, categoria, 0);
 
                     Log.d("CrearProyecto", "Datos de proyecto obtenidos correctamente");
 
@@ -84,7 +78,9 @@ public class crearProyecto extends AppCompatActivity {
                     db.collection("proyectos").add(proyecto)
                             .addOnSuccessListener(documentReference -> {
                                 String proyectoId = documentReference.getId(); // Obtener el ID del documento
-                                proyecto.setIdProyecto(proyectoId);
+                                proyecto.setIdProyecto(proyectoId); // Establecer el ID del proyecto
+
+                                // Guardar el proyecto de nuevo con el ID actualizado
                                 db.collection("proyectos").document(proyectoId).set(proyecto)
                                         .addOnSuccessListener(aVoid -> {
                                             Log.d("CrearProyecto", "Proyecto creado con ID: " + proyectoId);
