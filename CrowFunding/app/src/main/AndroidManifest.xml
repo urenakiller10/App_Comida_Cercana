@@ -30,7 +30,7 @@
         <activity android:name=".misProyectos"/>
         <activity android:name=".donaciones"/>
         <activity android:name=".DetalleProyectoActivity" />
-
+        <activity android:name=".ProyectoActivity" />
 
 
     </application>

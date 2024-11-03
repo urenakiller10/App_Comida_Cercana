@@ -19,8 +19,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
+
+       // Intent intent = new Intent(MainActivity.this, ProyectoActivity.class);
+        //startActivity(intent);
+
+
+
 
         // Configurar el layout para iniciar sesión
         setContentView(R.layout.view_iniciar_sesion);

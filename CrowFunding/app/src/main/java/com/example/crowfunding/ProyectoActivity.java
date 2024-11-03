@@ -1,79 +1,108 @@
 package com.example.crowfunding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProyectoActivity extends AppCompatActivity {
 
-    private static final String TAG = "ProyectoActivity";
-    private String idProyecto;
+    private String idProyecto; // ID del proyecto al que se está donando
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;  // Agregar variable FirebaseAuth
+    private String proyectoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_proyecto);
 
-        // Inicializa el idProyecto
-        idProyecto = "Mpfn85vcIT4LXqDgqq02";
+        // Inicializar Firestore
+        db = FirebaseFirestore.getInstance();
 
-        // Referencia al botón
+        idProyecto = getIntent().getStringExtra("proyectoId");
+
+
+        // Verifica que el ID del proyecto no sea nulo
+        if (proyectoId == null) {
+            Toast.makeText(this, "Error: Proyecto no encontrado", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        // Inicializar componentes de la vista
+        RatingBar ratingBar = findViewById(R.id.ratingBar);
+        EditText editComentario = findViewById(R.id.editComentario);
         Button btnCalificar = findViewById(R.id.btnCalificar);
 
-        // Establecer el OnClickListener para el botón
         btnCalificar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Aquí puedes capturar los datos de calificación y comentario
-                int calificacion = 4;
-                String comentario = "Buen proyecto";
-                String usuarioID = "6PVMIDRLpWPh0UcbMFWjmAkqQVV2";
-                // Llama al método para agregar el comentario
-                agregarComentario(idProyecto, calificacion, comentario, usuarioID);
+            @Override
+            public void onClick(View view) {
+                Log.d("ProyectoActivity", "Botón calificar presionado");
+                Toast.makeText(ProyectoActivity.this, "Botón calificar presionado", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
-    private void agregarComentario(String idProyecto, int calificacion, String comentario, String usuarioID) {
-        DatabaseReference projectRef = FirebaseDatabase.getInstance().getReference("proyectos").child(idProyecto);
+    private void agregarComentarioYCalificacion(String comentario, int calificacion, String idUser) {
+        Log.d("AgregarComentario", "Agregando comentario y calificación al proyecto");
 
-        // Crear un objeto Comentario
-        Comentario nuevoComentario = new Comentario(calificacion, comentario, usuarioID);
+        // Crear un HashMap para el comentario
+        Map<String, Object> comentarioData = new HashMap<>();
+        comentarioData.put("comentario", comentario);
+        comentarioData.put("calificacion", calificacion);
+        comentarioData.put("idUser", idUser); // Agregar idUser
 
-        // Guardar el comentario y actualizar la calificación promedio
-        projectRef.child("comentario").setValue(nuevoComentario.comentario)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "Comentario añadido con éxito");
+        // Agregar el comentario a la subcolección "Comentarios"
+        db.collection("proyectos").document(idProyecto)
+                .collection("Comentarios") // Acceder a la subcolección "Comentarios"
+                .add(comentarioData)
+                .addOnSuccessListener(documentReference -> {
+                    Log.d("AgregarComentario", "Comentario agregado con ID: " + documentReference.getId());
 
-                        // Actualiza la calificación promedio
-                        projectRef.child("calificacionPromedio").setValue(calificacion)
-                                .addOnCompleteListener(task1 -> {
-                                    if (task1.isSuccessful()) {
-                                        Log.d(TAG, "Calificación promedio actualizada con éxito");
-                                    } else {
-                                        Log.e(TAG, "Error al actualizar calificación promedio", task1.getException());
-                                    }
-                                });
-                    } else {
-                        Log.e(TAG, "Error al añadir comentario: " + task.getException().getMessage());
-                    }
+                    // Actualizar la calificación promedio del proyecto
+                    actualizarCalificacionPromedio(calificacion);
+
+                    // Mostrar un mensaje de éxito
+                    Toast.makeText(ProyectoActivity.this, "Comentario y calificación agregados exitosamente", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("AgregarComentario", "Error al agregar comentario: " + e.getMessage(), e);
+                    Toast.makeText(ProyectoActivity.this, "Error al agregar comentario", Toast.LENGTH_SHORT).show();
                 });
     }
 
-    // Clase Comentario
-    public static class Comentario {
-        public int calificacion;
-        public String comentario;
-        public String usuarioID;
+    private void actualizarCalificacionPromedio(int calificacion) {
+        Log.d("ActualizarCalificacion", "Actualizando la calificación promedio del proyecto");
 
-        public Comentario(int calificacion, String comentario, String usuarioID) {
-            this.calificacion = calificacion;
-            this.comentario = comentario;
-            this.usuarioID = usuarioID;
-        }
+        // Aquí debes implementar la lógica para calcular la calificación promedio real.
+        // Por simplicidad, vamos a suponer que simplemente se establece la calificación actual.
+
+        Map<String, Object> updates = new HashMap<>();
+        updates.put("calificacionPromedio", calificacion); // Aquí se asigna la calificación directamente
+
+        // Actualizar la calificación promedio del proyecto
+        db.collection("proyectos").document(idProyecto)
+                .update(updates)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("ActualizarCalificacion", "Calificación promedio actualizada con éxito");
+                    // Mensaje de éxito ya mostrado al agregar el comentario
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("ActualizarCalificacion", "Error al actualizar la calificación promedio: " + e.getMessage(), e);
+                    Toast.makeText(ProyectoActivity.this, "Error al actualizar la calificación promedio", Toast.LENGTH_SHORT).show();
+                });
     }
 }

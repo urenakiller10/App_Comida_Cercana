@@ -11,6 +11,7 @@ public class Proyecto {
     private String objetivoFinanciacion;
     private String categoria;
     private int calificacionPromedio;
+    private String comentario;
 
     // Constructor sin argumentos (requerido por Firestore)
     public Proyecto() {
@@ -26,7 +27,8 @@ public class Proyecto {
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
         this.dineroDonado = dineroDonado;
-        this.calificacionPromedio = 0; // Inicializa a un valor predeterminado
+
+
     }
 
     // Getters y Setters
@@ -86,11 +88,5 @@ public class Proyecto {
         return dineroDonado;
     }
 
-    public int getCalificacionPromedio() {
-        return calificacionPromedio;
-    }
 
-    public void setCalificacionPromedio(int calificacionPromedio) {
-        this.calificacionPromedio = calificacionPromedio;
-    }
 }
