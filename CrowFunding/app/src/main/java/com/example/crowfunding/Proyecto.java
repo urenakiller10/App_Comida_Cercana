@@ -1,9 +1,11 @@
 package com.example.crowfunding;
 
 public class Proyecto {
-    private String id; // Campo para almacenar el ID del proyecto
+    private String idUser;
+    private String idProyecto; // Campo para almacenar el ID del proyecto
     private String nombre;
     private String descripcion;
+    private String fechaCreacion;
     private String fechaLimite;
     private String objetivoFinanciacion;
     private String categoria;
@@ -13,21 +15,23 @@ public class Proyecto {
     }
 
     // Constructor
-    public Proyecto(String nombre, String descripcion, String fechaLimite, String objetivoFinanciacion, String categoria) {
+    public Proyecto(String idUser, String nombre, String descripcion, String fechaCreacion, String fechaLimite, String objetivoFinanciacion, String categoria) {
+        this.idUser = idUser;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.fechaCreacion = fechaCreacion;
         this.fechaLimite = fechaLimite;
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
     }
 
     // Getters y Setters
-    public String getId() {
-        return id;
+    public String getIdProyecto() {
+        return idProyecto;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdProyecto(String id) {
+        this.idProyecto = id;
     }
 
     public String getNombre() {
