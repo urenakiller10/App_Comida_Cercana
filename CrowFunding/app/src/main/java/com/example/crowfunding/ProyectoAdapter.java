@@ -37,6 +37,7 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
         holder.textDescripcion.setText(proyecto.getDescripcion());
         holder.textFechaLimite.setText(proyecto.getFechaLimite());
         holder.textObjetivo.setText(proyecto.getObjetivoFinanciacion());
+        holder.textCreacion.setText(proyecto.getFechaCreacion());
 
         // Agrega un listener para abrir DetalleProyectoActivity al hacer clic en el item
         holder.itemView.setOnClickListener(v -> {
@@ -54,7 +55,7 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
     }
 
     static class ProyectoViewHolder extends RecyclerView.ViewHolder {
-        TextView textNombre, textDescripcion, textFechaLimite, textObjetivo;
+        TextView textNombre, textDescripcion, textFechaLimite, textObjetivo, textCreacion;
 
         public ProyectoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +63,7 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
             textDescripcion = itemView.findViewById(R.id.textDescripcion);
             textFechaLimite = itemView.findViewById(R.id.textFechaLimite);
             textObjetivo = itemView.findViewById(R.id.textObjetivo);
+            textCreacion = itemView.findViewById(R.id.textFechaCreacion);
         }
     }
 }

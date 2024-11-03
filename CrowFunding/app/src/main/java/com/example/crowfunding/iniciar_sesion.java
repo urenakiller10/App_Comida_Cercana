@@ -36,6 +36,7 @@ public class iniciar_sesion extends AppCompatActivity {
         // Inicializar FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
+        /*
         // Verificar si el usuario ya ha iniciado sesión
         if (mAuth.getCurrentUser() != null) {
             // El usuario ya está logueado, redirigir a la pantalla principal directamente
@@ -43,7 +44,7 @@ public class iniciar_sesion extends AppCompatActivity {
             startActivity(intent);
             finish(); // Finaliza la actividad actual para que no vuelva a la pantalla de inicio de sesión
             return;
-        }
+        }*/
 
         // Referenciar los elementos del layout
         emailEditText = findViewById(R.id.etCorreo);
