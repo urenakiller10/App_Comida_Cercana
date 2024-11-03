@@ -3,6 +3,7 @@ package com.example.crowfunding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,10 +39,11 @@ public class iniciar_sesion extends AppCompatActivity {
 
         // Verificar si el usuario ya ha iniciado sesión
         if (mAuth.getCurrentUser() != null) {
-            // El usuario ya está logueado, redirigir a la pantalla principal directamente
+            // El usuario ya está logueado, redirigir a la pantalla principal
+            Log.d("LoginActivity", "Usuario ya está logueado, redirigiendo a MainScreenActivity.");
             Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
             startActivity(intent);
-            finish(); // Finaliza la actividad actual para que no vuelva a la pantalla de inicio de sesión
+            finish(); // Finaliza la actividad actual
             return;
         }
 
@@ -70,7 +72,6 @@ public class iniciar_sesion extends AppCompatActivity {
         });
     }
 
-
     // Método para iniciar sesión
     private void loginUser() {
         String email = emailEditText.getText().toString().trim();
@@ -87,22 +88,24 @@ public class iniciar_sesion extends AppCompatActivity {
             return;
         }
 
+        Log.d("LoginActivity", "Intentando iniciar sesión con email: " + email);
+
         // Intentar iniciar sesión con Firebase Authentication
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Inicio de sesión exitoso
+                            Log.d("LoginActivity", "Inicio de sesión exitoso.");
                             Toast.makeText(iniciar_sesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
                             // Redirigir a la pantalla principal
                             Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
                             startActivity(intent);
-                            finish(); // Finaliza la actividad actual para evitar volver con el botón atrás
+                            finish(); // Finaliza la actividad actual
                         } else {
-                            // Si ocurre un error, mostrar un mensaje
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error desconocido";
+                            Log.e("LoginActivity", "Error de inicio de sesión: " + errorMessage);
                             Toast.makeText(iniciar_sesion.this, "Error de inicio de sesión: " + errorMessage,
                                     Toast.LENGTH_LONG).show();
                         }

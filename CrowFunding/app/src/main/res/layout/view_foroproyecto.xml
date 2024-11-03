@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Título del Foro de Proyecto -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foro de Proyecto"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_weight="1" />
+
+        <!-- Botón de avance -->
+        <ImageView
+            android:id="@+id/nextButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+    </LinearLayout>
+
+    <!-- Descripción del Proyecto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#EFEFEF"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/projectDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at dolor nec elit faucibus consectetur. Aliquam erat volutpat."
+            android:textSize="14sp"
+            android:padding="4dp" />
+    </ScrollView>
+
+    <!-- Sección de Comentarios -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comentarios"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#EFEFEF"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Ejemplo de Comentarios -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuario1: Excelente proyecto!"
+                android:padding="4dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="4dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuario2: Me encanta!"
+                android:padding="4dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="4dp"
+                android:textSize="14sp" />
+
+            <!-- Agrega más TextView para cada comentario nuevo -->
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Campo para nuevo comentario y botón de envío -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/newCommentEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Comentario"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>
