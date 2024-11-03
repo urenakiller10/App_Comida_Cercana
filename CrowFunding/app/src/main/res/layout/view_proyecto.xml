@@ -99,6 +99,14 @@
             android:text="Donar"
             android:layout_marginEnd="16dp" />
 
+        <EditText
+            android:id="@+id/etDineroDonacion"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Cantidad de dinero"
+            android:inputType="numberDecimal" />
+
         <Button
             android:id="@+id/btnComentar"
             android:layout_width="wrap_content"

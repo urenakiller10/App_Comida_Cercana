@@ -7,6 +7,7 @@ public class Proyecto {
     private String descripcion;
     private String fechaCreacion;
     private String fechaLimite;
+    private float dineroDonado;
     private String objetivoFinanciacion;
     private String categoria;
 
@@ -21,6 +22,7 @@ public class Proyecto {
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.fechaLimite = fechaLimite;
+        this.dineroDonado = 0;
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
     }
@@ -73,4 +75,6 @@ public class Proyecto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public float getDineroActual() {return dineroDonado;}
 }
