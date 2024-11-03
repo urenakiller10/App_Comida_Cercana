@@ -29,7 +29,7 @@ public class registrarse extends AppCompatActivity {
 
     // Elementos del layout para ingresar datos
     private EditText emailEditText, passwordEditText, confirmPasswordEditText;
-    private EditText nameEditText, cedulaEditText, phoneEditText, initialMoneyEditText;
+    private EditText nameEditText, areaTrabajo, initialMoneyEditText;
     private Button registerButton;
 
 
@@ -38,7 +38,6 @@ public class registrarse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FirebaseApp.initializeApp(this);
-
 
         setContentView(R.layout.view_registrarse);
 
@@ -53,6 +52,7 @@ public class registrarse extends AppCompatActivity {
         registerButton = findViewById(R.id.btnRegistrarse);
         nameEditText = findViewById(R.id.name);
         initialMoneyEditText = findViewById(R.id.etDineroInicial);
+        areaTrabajo = findViewById(R.id.etAreaTrabajo);
 
         // Listener para el botón de registro
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -66,9 +66,11 @@ public class registrarse extends AppCompatActivity {
     // Función para registrar al usuario en Firebase
     private void registerUser() {
         // Obtener los valores de los campos
+
         String name = nameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String initialMoney = initialMoneyEditText.getText().toString().trim();
+        String areaDeTrabajo = areaTrabajo.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String confirmPassword = confirmPasswordEditText.getText().toString().trim();
 
@@ -103,6 +105,8 @@ public class registrarse extends AppCompatActivity {
                             Map<String, Object> userData = new HashMap<>();
                             userData.put("name", name);
                             userData.put("email", email);
+                            userData.put("idUser", userId);
+                            userData.put("AreaDeTrabajo", areaDeTrabajo);
 
                             // Convertir el saldo inicial a un número antes de guardarlo
                             double initialMoneyValue = Double.parseDouble(initialMoney);
