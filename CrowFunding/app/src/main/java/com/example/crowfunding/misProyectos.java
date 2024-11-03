@@ -54,7 +54,7 @@ public class misProyectos extends AppCompatActivity {
                     Proyecto proyecto = projectSnapshot.getValue(Proyecto.class);
                     if (proyecto != null) {
                         // Puedes almacenar el ID único en el objeto Proyecto (si lo necesitas)
-                        proyecto.setId(projectSnapshot.getKey());
+                        proyecto.setIdProyecto(projectSnapshot.getKey());
                         proyectosList.add(proyecto);
                     }
                 }

@@ -43,7 +43,7 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
             Intent intent = new Intent(context, DetalleProyectoActivity.class);
 
             // No es necesario verificar el ID aquí si estás seguro de que no será nulo
-            intent.putExtra("proyectoId", proyecto.getId());
+            intent.putExtra("proyectoId", proyecto.getIdProyecto());
             context.startActivity(intent);
         });
     }
