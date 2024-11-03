@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class crearProyecto extends AppCompatActivity {
 
@@ -56,7 +58,8 @@ public class crearProyecto extends AppCompatActivity {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                 String idUser = auth.getCurrentUser().getUid();
-                String fechaCreacion = Calendar.getInstance().toString();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                String fechaCreacion = sdf.format(Calendar.getInstance().getTime());
                 String nombre = nombreProyecto.getText().toString().trim();
                 String descripcion = descripcionProyecto.getText().toString().trim();
                 String fecha = fechaLimite.getText().toString().trim();
@@ -67,7 +70,7 @@ public class crearProyecto extends AppCompatActivity {
 
                 if (!nombre.isEmpty() && !descripcion.isEmpty() && !fecha.isEmpty() && !objetivo.isEmpty() && !categoria.isEmpty()) {
                     // Crear un nuevo objeto Proyecto
-                    Proyecto proyecto = new Proyecto(idUser, nombre, descripcion, fechaCreacion, fecha, objetivo, categoria);
+                    Proyecto proyecto = new Proyecto(idUser, nombre, descripcion, fechaCreacion, fecha, objetivo, categoria, 0);
 
                     Log.d("CrearProyecto", "Datos de proyecto obtenidos correctamente");
 

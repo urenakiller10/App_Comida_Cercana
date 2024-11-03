@@ -1,6 +1,7 @@
 package com.example.crowfunding;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,14 +10,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.Calendar;
+
 public class DetalleProyectoActivity extends AppCompatActivity {
-    private TextView textNombre, textDescripcion, textFechaLimite, textObjetivo;
+    private TextView textNombre, textDescripcion, textFechaLimite, textObjetivo, textFechaCreacion;
     private EditText etDineroDonacion; // Campo de entrada para la donación
     private FirebaseFirestore db;
+    private FirebaseAuth auth;  // Agregar variable FirebaseAuth
     private String proyectoId;
 
     @Override
@@ -40,9 +45,11 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         textFechaLimite = findViewById(R.id.textFechaLimite);
         textObjetivo = findViewById(R.id.textObjetivo);
         etDineroDonacion = findViewById(R.id.etDineroDonacion); // Asegúrate de tener este campo en tu XML
+        textFechaCreacion = findViewById(R.id.textFechaCreacion);
 
-        // Inicializa Firestore
+        // Inicializa Firestore y FirebaseAuth
         db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();  // Inicializar FirebaseAuth
 
         // Carga los datos del proyecto desde Firestore
         cargarDatosProyecto();
@@ -89,30 +96,45 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         }
 
         float donacion = Float.parseFloat(donacionStr); // Convertir a float
+        String idUser = FirebaseAuth.getInstance().getCurrentUser().getUid();  // Obtener el UID del usuario autenticado
 
-        // Obtén la referencia del proyecto
-        DocumentReference proyectoRef = db.collection("proyectos").document(proyectoId);
+        // Primero intenta realizar la donación restando el monto del saldo del usuario
+        generarDonacion(idUser, donacion);
+    }
 
-        // Actualiza el dinero del proyecto
-        proyectoRef.get().addOnCompleteListener(task -> {
+    private void generarDonacion(String idUser, float donacion) {
+        DocumentReference userRef = db.collection("users").document(idUser);
+
+        // Obtener el dinero inicial del usuario
+        userRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot snapshot = task.getResult();
                 if (snapshot.exists()) {
-                    Proyecto proyecto = snapshot.toObject(Proyecto.class);
-                    if (proyecto != null) {
-                        float dineroActual = proyecto.getDineroActual(); // Asumiendo que hay un método getDineroActual() que devuelve float
-                        float nuevoTotal = dineroActual + donacion;
+                    float initialMoney = snapshot.getDouble("initialMoney").floatValue();
 
-                        // Actualiza el documento en Firestore
-                        proyectoRef.update("dineroActual", nuevoTotal)
+                    // Verifica si el usuario tiene suficiente dinero
+                    if (initialMoney >= donacion) {
+                        // Actualiza el dinero del usuario restando la donación
+                        float nuevoSaldo = initialMoney - donacion;
+                        userRef.update("initialMoney", nuevoSaldo)
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(DetalleProyectoActivity.this, "Donación realizada con éxito", Toast.LENGTH_SHORT).show();
-                                    etDineroDonacion.setText(""); // Limpia el campo de entrada
-                                    // Aquí podrías actualizar la UI con el nuevo total si lo deseas
+                                    // Guarda los detalles de la donación en la colección "donaciones"
+                                    DocumentReference donacionRef = db.collection("donaciones").document();
+                                    Donacion nuevaDonacion = new Donacion(idUser, proyectoId, donacion, Calendar.getInstance().getTime());
+                                    donacionRef.set(nuevaDonacion)
+                                            .addOnSuccessListener(aVoid1 -> {
+                                                // Llama a donarProyecto para actualizar el dinero en el proyecto después de registrar la donación
+                                                donarProyecto(donacion);
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                Toast.makeText(DetalleProyectoActivity.this, "Error al registrar la donación", Toast.LENGTH_SHORT).show();
+                                            });
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(DetalleProyectoActivity.this, "Error al realizar la donación", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DetalleProyectoActivity.this, "Error al actualizar el saldo del usuario", Toast.LENGTH_SHORT).show();
                                 });
+                    } else {
+                        Toast.makeText(DetalleProyectoActivity.this, "Saldo insuficiente para realizar la donación", Toast.LENGTH_SHORT).show();
                     }
                 }
             } else {
@@ -120,4 +142,39 @@ public class DetalleProyectoActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void donarProyecto(float donacion) {
+        // Referencia al proyecto en Firestore
+        DocumentReference proyectoRef = db.collection("proyectos").document(proyectoId);
+
+        // Obtén los datos del proyecto para actualizar
+        proyectoRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot snapshot = task.getResult();
+                float dineroDonado = snapshot.getDouble("dineroActual").floatValue();
+                // Aquí se obtiene el dinero donado actual
+                float nuevoTotal = dineroDonado + donacion; // Sumar la nueva donación
+                //Log.d("Proyecto", "Dinero actual: " + dineroDonado + ", Nueva donación: " + donacion + ", Nuevo total: " + nuevoTotal);
+
+                // Actualiza el dinero en el proyecto
+                proyectoRef.update("dineroActual", nuevoTotal) // Asegúrate de actualizar "dineroDonado"
+                        .addOnSuccessListener(aVoid -> {
+                            Toast.makeText(DetalleProyectoActivity.this, "Donación realizada con éxito", Toast.LENGTH_SHORT).show();
+                            etDineroDonacion.setText(""); // Limpia el campo de entrada
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(DetalleProyectoActivity.this, "Error al realizar la donación", Toast.LENGTH_SHORT).show();
+                        });
+
+            } else {
+                Toast.makeText(DetalleProyectoActivity.this, "Error en la conexión con la base de datos", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
+
+
 }

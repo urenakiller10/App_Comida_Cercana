@@ -16,15 +16,15 @@ public class Proyecto {
     }
 
     // Constructor
-    public Proyecto(String idUser, String nombre, String descripcion, String fechaCreacion, String fechaLimite, String objetivoFinanciacion, String categoria) {
+    public Proyecto(String idUser, String nombre, String descripcion, String fechaCreacion, String fechaLimite, String objetivoFinanciacion, String categoria, float dineroDonado) {
         this.idUser = idUser;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.fechaLimite = fechaLimite;
-        this.dineroDonado = 0;
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
+        this.dineroDonado = dineroDonado;
     }
 
     // Getters y Setters
@@ -67,6 +67,9 @@ public class Proyecto {
     public void setObjetivoFinanciacion(String objetivoFinanciacion) {
         this.objetivoFinanciacion = objetivoFinanciacion;
     }
+
+    public String getFechaCreacion(){ return fechaCreacion;}
+
 
     public String getCategoria() {
         return categoria;
