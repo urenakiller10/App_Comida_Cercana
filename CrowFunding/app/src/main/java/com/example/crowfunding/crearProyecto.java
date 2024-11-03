@@ -11,8 +11,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.crowfunding.Proyecto;
-import com.example.crowfunding.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class crearProyecto extends AppCompatActivity {
@@ -69,10 +67,21 @@ public class crearProyecto extends AppCompatActivity {
                     // Guardar el proyecto en Firestore
                     db.collection("proyectos").add(proyecto)
                             .addOnSuccessListener(documentReference -> {
-                                Log.d("CrearProyecto", "Proyecto creado con ID: " + documentReference.getId());
-                                Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
-                                startActivity(intent);
+                                String proyectoId = documentReference.getId(); // Obtener el ID del documento
+                                proyecto.setId(proyectoId); // Establecer el ID del proyecto
+
+                                // Guardar el proyecto de nuevo con el ID actualizado
+                                db.collection("proyectos").document(proyectoId).set(proyecto)
+                                        .addOnSuccessListener(aVoid -> {
+                                            Log.d("CrearProyecto", "Proyecto creado con ID: " + proyectoId);
+                                            Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
+                                            startActivity(intent);
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Log.e("CrearProyecto", "Error al guardar el ID del proyecto", e);
+                                            Toast.makeText(crearProyecto.this, "Error al guardar el proyecto", Toast.LENGTH_SHORT).show();
+                                        });
                             })
                             .addOnFailureListener(e -> {
                                 Log.e("CrearProyecto", "Error al crear el proyecto", e);
