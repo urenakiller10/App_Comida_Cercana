@@ -46,10 +46,10 @@ public class iniciar_sesion extends AppCompatActivity {
         }
 
         // Referenciar los elementos del layout
-        emailEditText = findViewById(R.id.email);
-        passwordEditText = findViewById(R.id.password);
-        loginButton = findViewById(R.id.login_button);
-        registerLink = findViewById(R.id.register_link);
+        emailEditText = findViewById(R.id.etCorreo);
+        passwordEditText = findViewById(R.id.etContrasena);
+        loginButton = findViewById(R.id.btnIniciarSesion);
+        registerLink = findViewById(R.id.btnRegistrarse);
 
         // Configurar el listener para el botón de inicio de sesión
         loginButton.setOnClickListener(new View.OnClickListener() {

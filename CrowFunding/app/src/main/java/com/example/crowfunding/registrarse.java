@@ -47,14 +47,12 @@ public class registrarse extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Referenciar los elementos del layout (los campos de texto y el botón)
-        emailEditText = findViewById(R.id.email);
-        passwordEditText = findViewById(R.id.password);
+        emailEditText = findViewById(R.id.etCorreo);
+        passwordEditText = findViewById(R.id.etContrasena);
         confirmPasswordEditText = findViewById(R.id.confirm_password);
-        registerButton = findViewById(R.id.register_button);
+        registerButton = findViewById(R.id.btnRegistrarse);
         nameEditText = findViewById(R.id.name);
-        cedulaEditText = findViewById(R.id.cedula);
-        phoneEditText = findViewById(R.id.phone);
-        initialMoneyEditText = findViewById(R.id.initial_money);
+        initialMoneyEditText = findViewById(R.id.etDineroInicial);
 
         // Listener para el botón de registro
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -69,15 +67,13 @@ public class registrarse extends AppCompatActivity {
     private void registerUser() {
         // Obtener los valores de los campos
         String name = nameEditText.getText().toString().trim();
-        String cedula = cedulaEditText.getText().toString().trim();
-        String phone = phoneEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String initialMoney = initialMoneyEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String confirmPassword = confirmPasswordEditText.getText().toString().trim();
 
         // Verificar que todos los campos estén llenos
-        if (name.isEmpty() || cedula.isEmpty() || phone.isEmpty() || email.isEmpty() || initialMoney.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (name.isEmpty() ||  email.isEmpty() || initialMoney.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(registrarse.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
             return;
         }
@@ -106,8 +102,6 @@ public class registrarse extends AppCompatActivity {
                             // Guardar la información adicional en Firestore
                             Map<String, Object> userData = new HashMap<>();
                             userData.put("name", name);
-                            userData.put("cedula", cedula);
-                            userData.put("phone", phone);
                             userData.put("email", email);
 
                             // Convertir el saldo inicial a un número antes de guardarlo
