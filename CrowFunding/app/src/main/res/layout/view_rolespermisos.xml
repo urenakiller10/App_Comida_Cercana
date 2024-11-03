@@ -51,7 +51,11 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-
+        <Spinner
+            android:id="@+id/spinnerRoles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnAgregarRol"
@@ -76,7 +80,11 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-
+        <Spinner
+            android:id="@+id/spinnerPermisos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnAgregarPermiso"
