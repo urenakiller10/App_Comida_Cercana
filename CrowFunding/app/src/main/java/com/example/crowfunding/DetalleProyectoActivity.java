@@ -11,7 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 public class DetalleProyectoActivity extends AppCompatActivity {
-    private TextView textNombre, textDescripcion, textFechaLimite, textObjetivo, textCreacion;
+    private TextView textNombre, textDescripcion, textFechaLimite, textObjetivo;
     private FirebaseFirestore db;
     private String proyectoId;
 
@@ -36,7 +36,6 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         // textFechaCreacion = findViewById(R.id.textFechaCreacion); // Comentado temporalmente
         textFechaLimite = findViewById(R.id.textFechaLimite);
         textObjetivo = findViewById(R.id.textObjetivo);
-        textCreacion = findViewById(R.id.textFechaCreacion);
 
         // Inicializa Firestore
         db = FirebaseFirestore.getInstance();
@@ -57,7 +56,6 @@ public class DetalleProyectoActivity extends AppCompatActivity {
                         textDescripcion.setText(proyecto.getDescripcion());
                         textFechaLimite.setText(proyecto.getFechaLimite());
                         textObjetivo.setText(proyecto.getObjetivoFinanciacion());
-                        textCreacion.setText(proyecto.getFechaCreacion());
 
                         // Establece la fecha de creación si está disponible en la base de datos
                         // String fechaCreacion = snapshot.getString("fechaCreacion");
