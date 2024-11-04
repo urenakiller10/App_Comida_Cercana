@@ -1,152 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <!-- Título del Proyecto -->
+    <!-- Nombre del Proyecto -->
     <TextView
-        android:id="@+id/projectName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre del Proyecto"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:textSize="18sp"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000" />
 
     <!-- Descripción del Proyecto -->
     <TextView
-        android:id="@+id/projectDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp" />
+        android:textSize="16sp"
+        android:textColor="#333333" />
 
-    <!-- Objetivo del Proyecto -->
-
-    <!-- Comentarios -->
+    <!-- Fecha de Creación -->
     <TextView
-        android:id="@+id/projectGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Creación"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textFechaCreacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Objetivo: $5000.00"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="#333333" />
 
+    <!-- Fecha Límite -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comentarios"
+        android:text="Fecha Límite"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp" />
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
 
-    <EditText
-        android:id="@+id/commentEditText"
-        android:layout_width="201dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:hint="Escribe un comentario..."
-        android:textSize="14sp" />
-
-    <!-- Puntuación con Estrellas -->
-    <Button
-        android:id="@+id/submitCommentButton"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textFechaLimite"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Comentar"
-        android:textColor="#FFFFFF" />
+        android:textSize="16sp"
+        android:textColor="#333333" />
 
+    <!-- Objetivo de Financiación -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puntuar Proyecto"
+        android:text="Objetivo de Financiación"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp" />
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
 
-    <!-- Historial de Donantes con Scroll -->
+    <TextView
+        android:id="@+id/textObjetivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#333333" />
+
+    <!-- Botones de Donar y Comentar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnDonar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donar"
+            android:layout_marginEnd="16dp" />
+
+
+    </LinearLayout>
+
+    <!-- Calificación de Estrellas -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calificación"
+        android:textSize="16sp"
+        android:paddingTop="16dp" />
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="201dp"
-        android:layout_height="15dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:numStars="5"
-        android:stepSize="1.0" />
+        android:stepSize="1.0"
+        android:layout_marginTop="8dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Mensajes de Donantes"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:background="#EFEFEF"
-        android:padding="8dp">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/donorsMessagesLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!-- Aquí se añadirán los mensajes de donantes dinámicamente -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Donante 1: ¡Gran proyecto!"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="4dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Donante 2: ¡Mucho éxito!"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="4dp"/>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
-
-    <!-- Donación -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donar al Proyecto"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="4dp" />
-
+    <!-- Cuadro de Comentarios -->
     <EditText
-        android:id="@+id/donationAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_marginBottom="8dp"
-        android:hint="Ingresa cantidad a donar"
-        android:inputType="numberDecimal"
-        android:textSize="14sp" />
+        android:id="@+id/editTextComentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe un comentario"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:gravity="top"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:background="#E0E0E0"
+        android:paddingHorizontal="16dp" />
+
 
     <Button
-        android:id="@+id/donateButton"
+        android:id="@+id/btnComentar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Donar"
-        android:backgroundTint="#FF9800"
-        android:textColor="#FFFFFF" />
+        android:text="Comentar" />
+
+
+
+
+
 
 </LinearLayout>
