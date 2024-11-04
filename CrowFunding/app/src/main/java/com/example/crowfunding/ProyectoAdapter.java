@@ -1,7 +1,7 @@
 package com.example.crowfunding;
 
+
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,20 +31,15 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
     @Override
     public void onBindViewHolder(@NonNull ProyectoViewHolder holder, int position) {
         Proyecto proyecto = proyectos.get(position);
-
-        // Asigna los datos del proyecto a los elementos de la vista
         holder.textNombre.setText(proyecto.getNombre());
         holder.textDescripcion.setText(proyecto.getDescripcion());
         holder.textFechaLimite.setText(proyecto.getFechaLimite());
         holder.textObjetivo.setText(proyecto.getObjetivoFinanciacion());
-
-        // Agrega un listener para abrir DetalleProyectoActivity al hacer clic en el item
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetalleProyectoActivity.class);
-
-            // No es necesario verificar el ID aquí si estás seguro de que no será nulo
-            intent.putExtra("proyectoId", proyecto.getIdProyecto());
-            context.startActivity(intent);
+            // Aquí puedes agregar la lógica para redirigir a otra actividad
+            // Intent intent = new Intent(context, DetalleProyectoActivity.class);
+            // intent.putExtra("proyectoId", proyecto.getId()); // O lo que necesites
+            // context.startActivity(intent);
         });
     }
 
@@ -54,14 +49,16 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
     }
 
     static class ProyectoViewHolder extends RecyclerView.ViewHolder {
-        TextView textNombre, textDescripcion, textFechaLimite, textObjetivo;
+        TextView textNombre, textDescripcion, textFechaCreacion, textFechaLimite, textObjetivo;
 
         public ProyectoViewHolder(@NonNull View itemView) {
             super(itemView);
             textNombre = itemView.findViewById(R.id.textNombre);
             textDescripcion = itemView.findViewById(R.id.textDescripcion);
+            textFechaCreacion = itemView.findViewById(R.id.textFechaCreacion);
             textFechaLimite = itemView.findViewById(R.id.textFechaLimite);
             textObjetivo = itemView.findViewById(R.id.textObjetivo);
         }
     }
 }
+

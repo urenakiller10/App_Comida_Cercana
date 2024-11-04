@@ -11,10 +11,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.crowfunding.Proyecto;
+import com.example.crowfunding.R;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Calendar;
 
 public class crearProyecto extends AppCompatActivity {
 
@@ -53,10 +52,6 @@ public class crearProyecto extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Obtener los valores de los campos
-                FirebaseAuth auth = FirebaseAuth.getInstance();
-
-                String idUser = auth.getCurrentUser().getUid();
-                String fechaCreacion = Calendar.getInstance().toString();
                 String nombre = nombreProyecto.getText().toString().trim();
                 String descripcion = descripcionProyecto.getText().toString().trim();
                 String fecha = fechaLimite.getText().toString().trim();
@@ -67,28 +62,17 @@ public class crearProyecto extends AppCompatActivity {
 
                 if (!nombre.isEmpty() && !descripcion.isEmpty() && !fecha.isEmpty() && !objetivo.isEmpty() && !categoria.isEmpty()) {
                     // Crear un nuevo objeto Proyecto
-                    Proyecto proyecto = new Proyecto(idUser, nombre, descripcion, fechaCreacion, fecha, objetivo, categoria);
+                    Proyecto proyecto = new Proyecto(nombre, descripcion, fecha, objetivo, categoria);
 
                     Log.d("CrearProyecto", "Datos de proyecto obtenidos correctamente");
 
                     // Guardar el proyecto en Firestore
                     db.collection("proyectos").add(proyecto)
                             .addOnSuccessListener(documentReference -> {
-                                String proyectoId = documentReference.getId(); // Obtener el ID del documento
-                                proyecto.setIdProyecto(proyectoId); // Establecer el ID del proyecto
-
-                                // Guardar el proyecto de nuevo con el ID actualizado
-                                db.collection("proyectos").document(proyectoId).set(proyecto)
-                                        .addOnSuccessListener(aVoid -> {
-                                            Log.d("CrearProyecto", "Proyecto creado con ID: " + proyectoId);
-                                            Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
-                                            startActivity(intent);
-                                        })
-                                        .addOnFailureListener(e -> {
-                                            Log.e("CrearProyecto", "Error al guardar el ID del proyecto", e);
-                                            Toast.makeText(crearProyecto.this, "Error al guardar el proyecto", Toast.LENGTH_SHORT).show();
-                                        });
+                                Log.d("CrearProyecto", "Proyecto creado con ID: " + documentReference.getId());
+                                Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
+                                startActivity(intent);
                             })
                             .addOnFailureListener(e -> {
                                 Log.e("CrearProyecto", "Error al crear el proyecto", e);
