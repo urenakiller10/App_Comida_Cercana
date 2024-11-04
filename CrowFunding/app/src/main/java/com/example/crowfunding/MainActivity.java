@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
 
-       // Intent intent = new Intent(MainActivity.this, ProyectoActivity.class);
-        //startActivity(intent);
+       //Intent intent = new Intent(MainActivity.this, ProyectoActivity.class);
+       //startActivity(intent);
 
 
 
