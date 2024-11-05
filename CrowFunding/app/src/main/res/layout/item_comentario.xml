@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="8dp"
     android:background="#F9F9F9">
 
@@ -22,6 +21,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="#000000"
-        android:text="Usuario: Comentario de ejemplo" />
+        android:textColor="#000000" />
+
+    <!-- Botones para likes y dislikes -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/like_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like" />
+
+        <Button
+            android:id="@+id/dislike_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dislike" />
+
+        <Button
+            android:id="@+id/responder_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responder" />
+    </LinearLayout>
+
+    <!-- Contenedor para respuestas anidadas -->
+    <LinearLayout
+        android:id="@+id/respuestas_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"/>
+
 </LinearLayout>

@@ -36,10 +36,8 @@ android {
 
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
-    // Añadir productos de Firebase sin especificar versiones
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-    // Firebase Firestore
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation(libs.appcompat)
     implementation(libs.material)

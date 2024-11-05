@@ -17,8 +17,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class foroGeneral extends AppCompatActivity {
 
@@ -91,13 +94,14 @@ public class foroGeneral extends AppCompatActivity {
     }
 
     private void enviarComentario(String textoComentario) {
-        String userId = mAuth.getCurrentUser().getUid();  // Obtener ID del usuario autenticado
-        Timestamp fechaHora = Timestamp.now();  // Obtener fecha y hora actual
-        comentario nuevoComentario = new comentario(textoComentario, userId, fechaHora);
+        String userId = mAuth.getCurrentUser().getUid();
+        Timestamp fechaHora = Timestamp.now();
+        comentario nuevoComentario = new comentario(null, textoComentario, userId, fechaHora); // ID se establece después
 
         db.collection("comentariosForoGeneral")
                 .add(nuevoComentario)
                 .addOnSuccessListener(documentReference -> {
+                    nuevoComentario.setId(documentReference.getId()); // Asignar el ID generado a nuevoComentario
                     comentarioList.add(nuevoComentario);
                     comentarioAdapter.notifyItemInserted(comentarioList.size() - 1);
                     recyclerViewForum.scrollToPosition(comentarioList.size() - 1);
