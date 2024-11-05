@@ -10,6 +10,8 @@ public class Proyecto {
     private float dineroDonado;
     private String objetivoFinanciacion;
     private String categoria;
+    private int calificacionPromedio;
+    private String comentario;
 
     // Constructor sin argumentos (requerido por Firestore)
     public Proyecto() {
@@ -25,6 +27,8 @@ public class Proyecto {
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
         this.dineroDonado = dineroDonado;
+
+
     }
 
     // Getters y Setters
@@ -68,8 +72,9 @@ public class Proyecto {
         this.objetivoFinanciacion = objetivoFinanciacion;
     }
 
-    public String getFechaCreacion(){ return fechaCreacion;}
-
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
 
     public String getCategoria() {
         return categoria;
@@ -79,5 +84,9 @@ public class Proyecto {
         this.categoria = categoria;
     }
 
-    public float getDineroActual() {return dineroDonado;}
+    public float getDineroActual() {
+        return dineroDonado;
+    }
+
+
 }
