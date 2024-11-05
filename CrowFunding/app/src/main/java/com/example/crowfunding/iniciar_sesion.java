@@ -54,10 +54,14 @@ public class iniciar_sesion extends AppCompatActivity {
 
         // Configurar el listener para el botón de inicio de sesión
         loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 loginUser();
             }
+
+
+
         });
 
         // Listener para el enlace de registro

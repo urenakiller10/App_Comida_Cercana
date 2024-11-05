@@ -92,6 +92,14 @@ public class registrarse extends AppCompatActivity {
             return;
         }
 
+        EmailSender emailSender = new EmailSender("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");
+        emailSender.enviarCorreo(email, "Bienvenido", "Bienvenido a ProyecTec");
+
+
+
+
+
+
         // Si todo es válido, proceder con el registro en Firebase Authentication
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

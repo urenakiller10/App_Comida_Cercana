@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-
-
         // Inicializar Firebase
         FirebaseApp.initializeApp(this);
 

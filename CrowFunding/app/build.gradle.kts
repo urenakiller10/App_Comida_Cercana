@@ -43,6 +43,11 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.android.gms:play-services-auth:20.5.0") // Verifica la versión más reciente
 
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+
+
+
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
