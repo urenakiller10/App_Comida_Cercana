@@ -1,12 +1,15 @@
 package com.example.crowfunding;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -68,8 +71,6 @@ public class foroGeneral extends AppCompatActivity {
                 }
             }
         });
-
-        // Cargar comentarios desde Firestore
         cargarComentarios();
     }
 
@@ -101,7 +102,9 @@ public class foroGeneral extends AppCompatActivity {
         db.collection("comentariosForoGeneral")
                 .add(nuevoComentario)
                 .addOnSuccessListener(documentReference -> {
-                    nuevoComentario.setId(documentReference.getId()); // Asignar el ID generado a nuevoComentario
+                    String generatedId = documentReference.getId();
+                    documentReference.update("id", generatedId);
+                    nuevoComentario.setId(generatedId); // Asignar el ID generado a nuevoComentario
                     comentarioList.add(nuevoComentario);
                     comentarioAdapter.notifyItemInserted(comentarioList.size() - 1);
                     recyclerViewForum.scrollToPosition(comentarioList.size() - 1);

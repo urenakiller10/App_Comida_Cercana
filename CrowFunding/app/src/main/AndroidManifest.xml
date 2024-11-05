@@ -33,6 +33,7 @@
         <activity android:name=".misProyectos"/>
         <activity android:name=".donaciones"/>
         <activity android:name=".foroGeneral"/>
+        <activity android:name=".respuesta" />
 
     </application>
 </manifest>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Texto del comentario -->
+    <TextView
+        android:id="@+id/textoComentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+
+    <!-- Campo para responder el comentario -->
+    <EditText
+        android:id="@+id/campoRespuesta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe tu respuesta..." />
+
+    <!-- Botón para enviar respuesta -->
+    <Button
+        android:id="@+id/botonEnviarRespuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar" />
+
+    <!-- RecyclerView para mostrar respuestas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRespuestas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
