@@ -101,6 +101,7 @@ public class DetalleProyectoActivity extends AppCompatActivity {
                     Proyecto proyecto = snapshot.toObject(Proyecto.class);
                     if (proyecto != null) {
                         textNombre.setText(proyecto.getNombre());
+                        textFechaCreacion.setText(proyecto.getFechaCreacion());
                         textDescripcion.setText(proyecto.getDescripcion());
                         textFechaLimite.setText(proyecto.getFechaLimite());
                         textObjetivo.setText(proyecto.getObjetivoFinanciacion());
