@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloEditarPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Perfil"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
+    <!-- Contenedor del formulario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nombre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
+
+        <EditText
+            android:id="@+id/etNombreEditar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Nombre"
+            android:inputType="text" />
+
+
+
+
+        <!-- Área de trabajo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Área de trabajo" />
+
+        <EditText
+            android:id="@+id/etAreaTrabajoEditarr"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Área de trabajo"
+            android:inputType="text" />
+
+        <!-- Cantidad de dinero inicial -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de dinero inicial" />
+
+        <EditText
+            android:id="@+id/etDineroInicialEditarr"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Cantidad de dinero"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <!-- Botón para guardar cambios -->
+    <Button
+        android:id="@+id/btnGuardarCambioss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FF9800"
+        android:text="Guardar cambios"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
