@@ -41,13 +41,6 @@ public class comentarioAdapter extends RecyclerView.Adapter<comentarioAdapter.Co
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         String nombreUsuario = documentSnapshot.getString("nombre");
-                        if (nombreUsuario != null) {
-                            holder.comentarioTextView.setText(nombreUsuario + ": " + comentarioActual.getTexto());
-                        } else {
-                            holder.comentarioTextView.setText("Usuario sin nombre: " + comentarioActual.getTexto());
-                        }
-                    } else {
-                        holder.comentarioTextView.setText("Usuario desconocido: " + comentarioActual.getTexto());
                     }
                 })
                 .addOnFailureListener(e -> {
