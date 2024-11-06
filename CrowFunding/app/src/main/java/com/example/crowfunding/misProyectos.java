@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,7 @@ public class misProyectos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_misproyectos); // Asegúrate de que el XML está bien referenciado
 
+
         // Inicializa el RecyclerView
         rvProjects = findViewById(R.id.rvProjects);
         rvProjects.setLayoutManager(new LinearLayoutManager(this));
@@ -46,14 +48,18 @@ public class misProyectos extends AppCompatActivity {
     }
 
     private void cargarProyectos() {
-        proyectosRef.addValueEventListener(new ValueEventListener() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String idUser = auth.getCurrentUser().getUid();
+
+        // Filtrar proyectos por el campo idUser
+        proyectosRef.orderByChild("idUser").equalTo(idUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 proyectosList.clear();
                 for (DataSnapshot projectSnapshot : snapshot.getChildren()) {
                     Proyecto proyecto = projectSnapshot.getValue(Proyecto.class);
                     if (proyecto != null) {
-                        // Puedes almacenar el ID único en el objeto Proyecto (si lo necesitas)
+                        // Establece el ID único en el objeto Proyecto
                         proyecto.setIdProyecto(projectSnapshot.getKey());
                         proyectosList.add(proyecto);
                     }
@@ -67,4 +73,5 @@ public class misProyectos extends AppCompatActivity {
             }
         });
     }
+
 }

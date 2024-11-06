@@ -24,8 +24,7 @@
         <item>Familia</item>
         <item>Deporte</item>
     </string-array>
-
-
+    <string name="title_activity_view_proyecto_creador">ViewProyectoCreador</string>
 
 
 </resources>

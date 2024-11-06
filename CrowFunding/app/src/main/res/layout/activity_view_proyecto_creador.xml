@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="match_parent">
+<!--  Nombre del Proyecto  -->
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nombre del Proyecto" android:textSize="18sp" android:paddingBottom="8dp"/>
+<TextView android:id="@+id/textNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="#000000"/>
+<!--  Descripción del Proyecto  -->
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Descripción" android:textSize="16sp" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+<TextView android:id="@+id/textDescripcion" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="#333333"/>
+<!--  Fecha de Creación  -->
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fecha de Creación" android:textSize="16sp" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+<TextView android:id="@+id/textFechaCreacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="#333333"/>
+<!--  Fecha Límite  -->
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fecha Límite" android:textSize="16sp" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+<TextView android:id="@+id/textFechaLimite" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="#333333"/>
+<!--  Objetivo de Financiación  -->
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Objetivo de Financiación" android:textSize="16sp" android:paddingTop="8dp" android:paddingBottom="8dp"/>
+<TextView android:id="@+id/textObjetivo" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="#333333"/>
+    <!--  Sección de Calificación  -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="Calificación"
+        android:textSize="16sp" />
+
+    <!--  Botón com.example.crowfunding.Calificar  -->
+</LinearLayout>

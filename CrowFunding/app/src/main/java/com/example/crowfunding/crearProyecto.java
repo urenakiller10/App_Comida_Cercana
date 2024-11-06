@@ -58,6 +58,7 @@ public class crearProyecto extends AppCompatActivity {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                 String idUser = auth.getCurrentUser().getUid();
+                Log.d("IdUser capturado", idUser);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                 String fechaCreacion = sdf.format(Calendar.getInstance().getTime());
                 String nombre = nombreProyecto.getText().toString().trim();

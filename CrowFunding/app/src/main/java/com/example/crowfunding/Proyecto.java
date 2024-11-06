@@ -31,6 +31,9 @@ public class Proyecto {
 
     }
 
+    public String getIdUser(){return  idUser;};
+    public void setIdUser(String idUser){this.idUser = idUser;};
+
     // Getters y Setters
     public String getIdProyecto() {
         return idProyecto;

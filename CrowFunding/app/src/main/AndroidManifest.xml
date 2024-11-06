@@ -13,6 +13,11 @@
         android:theme="@style/Theme.CrowFunding"
         tools:targetApi="31">
         <activity
+            android:name=".ViewProyectoCreador"
+            android:exported="false"
+            android:label="@string/title_activity_view_proyecto_creador"
+            android:theme="@style/Theme.CrowFunding" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,18 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".registrarse"/>
-        <activity android:name=".iniciar_sesion"/>
-        <activity android:name=".MainScreenActivity"/>
-        <activity android:name=".cartera"/>
-        <activity android:name=".crearProyecto"/>
-        <activity android:name=".perfil"/>
-        <activity android:name=".misProyectos"/>
-        <activity android:name=".donaciones"/>
+        <activity android:name=".registrarse" />
+        <activity android:name=".iniciar_sesion" />
+        <activity android:name=".MainScreenActivity" />
+        <activity android:name=".cartera" />
+        <activity android:name=".crearProyecto" />
+        <activity android:name=".perfil" />
+        <activity android:name=".misProyectos" />
+        <activity android:name=".donaciones" />
         <activity android:name=".DetalleProyectoActivity" />
         <activity android:name=".ProyectoActivity" />
-
-
     </application>
 
 </manifest>
