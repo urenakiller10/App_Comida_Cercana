@@ -36,16 +36,6 @@ public class iniciar_sesion extends AppCompatActivity {
         // Inicializar FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
-        /*
-        // Verificar si el usuario ya ha iniciado sesión
-        if (mAuth.getCurrentUser() != null) {
-            // El usuario ya está logueado, redirigir a la pantalla principal directamente
-            Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
-            startActivity(intent);
-            finish(); // Finaliza la actividad actual para que no vuelva a la pantalla de inicio de sesión
-            return;
-        }*/
-
         // Referenciar los elementos del layout
         emailEditText = findViewById(R.id.etCorreo);
         passwordEditText = findViewById(R.id.etContrasena);
@@ -101,15 +91,22 @@ public class iniciar_sesion extends AppCompatActivity {
                             // Inicio de sesión exitoso
                             Toast.makeText(iniciar_sesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
+                            // Verificar si el correo es el de administrador
+                            if (email.equals("andurena@estudiantec.cr")) {
+                                // Redirigir a la ventana view_home_admin (HomeAdmin)
+                                Intent intent = new Intent(iniciar_sesion.this, HomeAdmin.class);
+                                startActivity(intent);
+                            } else {
+                                // Redirigir a la pantalla principal (MainScreenActivity)
+                                Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+
                             SessionManager.setEmail(email);
 
 
-
-
-                            // Redirigir a la pantalla principal
-                            Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
-                            startActivity(intent);
-                            finish(); // Finaliza la actividad actual para evitar volver con el botón atrás
                         } else {
                             // Si ocurre un error, mostrar un mensaje
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error desconocido";

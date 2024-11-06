@@ -33,6 +33,8 @@
         <activity android:name=".DetalleProyectoActivity" />
         <activity android:name=".ProyectoActivity" />
         <activity android:name=".EditarPerfil" />
+        <activity android:name=".HomeAdmin" />
+        <activity android:name=".ProyectoAdapter_Admin" />
 
 
     </application>
