@@ -54,10 +54,14 @@ public class iniciar_sesion extends AppCompatActivity {
 
         // Configurar el listener para el botón de inicio de sesión
         loginButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 loginUser();
             }
+
+
+
         });
 
         // Listener para el enlace de registro
@@ -96,6 +100,11 @@ public class iniciar_sesion extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Inicio de sesión exitoso
                             Toast.makeText(iniciar_sesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+
+                            SessionManager.setEmail(email);
+
+
+
 
                             // Redirigir a la pantalla principal
                             Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);

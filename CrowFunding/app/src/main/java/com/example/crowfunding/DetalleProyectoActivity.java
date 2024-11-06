@@ -101,6 +101,7 @@ public class DetalleProyectoActivity extends AppCompatActivity {
                     Proyecto proyecto = snapshot.toObject(Proyecto.class);
                     if (proyecto != null) {
                         textNombre.setText(proyecto.getNombre());
+                        textFechaCreacion.setText(proyecto.getFechaCreacion());
                         textDescripcion.setText(proyecto.getDescripcion());
                         textFechaLimite.setText(proyecto.getFechaLimite());
                         textObjetivo.setText(proyecto.getObjetivoFinanciacion());
@@ -130,6 +131,18 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         float donacion = Float.parseFloat(donacionStr);
         String idUser = auth.getCurrentUser().getUid();
         generarDonacion(idUser, donacion);
+
+
+        // Verificar si la donación es mayor a 100,000
+        if (donacion >= 100000) {
+            Toast.makeText(this, "No se puede realizar la donación: el monto excede los 100,000", Toast.LENGTH_SHORT).show();
+
+            EmailSender emailSender = new EmailSender("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");
+            emailSender.enviarCorreo("andurena@estudiantec.cr", "¡Donación sospechosa!", "Un usuario ha intentado donar una cantidad sospechosa a un proyecto");
+
+            return;
+        }
+
     }
 
     private void generarDonacion(String idUser, float donacion) {
@@ -177,6 +190,18 @@ public class DetalleProyectoActivity extends AppCompatActivity {
                         .addOnSuccessListener(aVoid -> {
                             Toast.makeText(this, "Donación realizada con éxito", Toast.LENGTH_SHORT).show();
                             etDineroDonacion.setText("");
+
+                            // Obtener el email guardado
+                            String email = SessionManager.getEmail();
+
+                            EmailSender emailSender = new EmailSender("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");
+                            emailSender.enviarCorreo(email, "Donación realizada correctamente", "Has donado la cantidad de" + donacion+ "a un proyecto en la plataforma de crowdfunding, ¡gracias por ser parte de ProyecTec!");
+
+
+
+
+
+
                         })
                         .addOnFailureListener(e -> {
                             Toast.makeText(this, "Error al realizar la donación", Toast.LENGTH_SHORT).show();
