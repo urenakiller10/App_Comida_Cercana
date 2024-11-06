@@ -1,6 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfil de Usuario"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
+    <!-- Contenedor del perfil -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_border"
+        android:padding="16dp">
+
+        <!-- Nombre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del usuario"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Correo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="correo@ejemplo.com"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Área de trabajo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Área de Trabajo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAreaTrabajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desarrollador de Software"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Cantidad de dinero inicial -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de Dinero Inicial"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDineroInicial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$1000.00"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+
+    <!-- Botón para editar perfil -->
+    <Button
+        android:id="@+id/btnEditarPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Editar Perfil"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
