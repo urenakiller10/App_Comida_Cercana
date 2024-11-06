@@ -101,11 +101,6 @@ public class iniciar_sesion extends AppCompatActivity {
                             // Inicio de sesión exitoso
                             Toast.makeText(iniciar_sesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
-                            SessionManager.setEmail(email);
-
-
-
-
                             // Redirigir a la pantalla principal
                             Intent intent = new Intent(iniciar_sesion.this, MainScreenActivity.class);
                             startActivity(intent);
