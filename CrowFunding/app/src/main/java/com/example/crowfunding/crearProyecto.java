@@ -58,6 +58,7 @@ public class crearProyecto extends AppCompatActivity {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                 String idUser = auth.getCurrentUser().getUid();
+                Log.d("IdUser capturado", idUser);
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
                 String fechaCreacion = sdf.format(Calendar.getInstance().getTime());
                 String nombre = nombreProyecto.getText().toString().trim();
@@ -87,21 +88,6 @@ public class crearProyecto extends AppCompatActivity {
                                             Toast.makeText(crearProyecto.this, "Proyecto creado exitosamente", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(crearProyecto.this, MainScreenActivity.class);
                                             startActivity(intent);
-
-                                            // Obtener el email guardado
-                                            String email = SessionManager.getEmail();
-
-
-
-                                            EmailSender emailSender = new EmailSender("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");
-                                            emailSender.enviarCorreo(email, "Proyecto creado exitosamente", "Su proyecto ha sido creado de manera exitosa en la plataforma de crowdfunding.");
-
-
-
-
-
-
-
                                         })
                                         .addOnFailureListener(e -> {
                                             Log.e("CrearProyecto", "Error al guardar el ID del proyecto", e);
