@@ -3,40 +3,35 @@ package com.example.crowfunding;
 import java.util.Date;
 
 public class respuesta {
+    private String comentarioId;
     private String texto;
-    private String userId; // Puedes agregar un ID de usuario si deseas asociar respuestas con usuarios específicos
-    private Date fechaHora; // Puedes agregar una fecha y hora para la respuesta
+    private String userId;
+    private Date fecha;  // Para almacenar la fecha
+    private String nombreUsuario;
 
     // Constructor
-    public respuesta(String texto) {
+    public respuesta(String comentarioId, String texto, String userId, Date fecha, String nombreUsuario) {
+        this.comentarioId = comentarioId;
         this.texto = texto;
-        this.fechaHora = new Date(); // Asigna la fecha y hora actual
+        this.userId = userId;
+        this.fecha = fecha;
+        this.nombreUsuario = nombreUsuario;
     }
 
-    // Getter y Setter para el texto
+    // Getters y setters
     public String getTexto() {
         return texto;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    // Getter y Setter para userId
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public Date getFecha() {
+        return fecha;
     }
 
-    // Getter y Setter para fechaHora
-    public Date getFechaHora() {
-        return fechaHora;
-    }
-
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 }

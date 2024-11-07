@@ -3,35 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FFF">
 
-    <!-- Texto del comentario -->
+    <!-- Texto del comentario con nombre de usuario -->
     <TextView
         android:id="@+id/textoComentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Usuario: Comentario"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Likes y Dislikes -->
+    <TextView
+        android:id="@+id/likesDislikesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Likes: 0 Dislikes: 0"
+        android:layout_marginBottom="8dp" />
+
+    <!-- RecyclerView para respuestas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRespuestas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#000000" />
+        android:nestedScrollingEnabled="false"
+        android:layout_marginBottom="8dp" />
 
-    <!-- Campo para responder el comentario -->
+    <!-- Campo para escribir respuesta -->
     <EditText
         android:id="@+id/campoRespuesta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Escribe tu respuesta..." />
+        android:hint="Escribe tu respuesta aquí"
+        android:inputType="text"
+        android:layout_marginBottom="8dp" />
 
     <!-- Botón para enviar respuesta -->
     <Button
         android:id="@+id/botonEnviarRespuesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enviar" />
-
-    <!-- RecyclerView para mostrar respuestas -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewRespuestas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
-
+        android:text="Enviar Respuesta" />
 </LinearLayout>

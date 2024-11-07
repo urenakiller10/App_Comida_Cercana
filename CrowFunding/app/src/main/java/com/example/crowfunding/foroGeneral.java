@@ -1,5 +1,6 @@
 package com.example.crowfunding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ public class foroGeneral extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,14 @@ public class foroGeneral extends AppCompatActivity {
         // Inicializar FirebaseAuth y Firestore
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        if (mAuth.getCurrentUser() == null) {
+            // Si no hay usuario autenticado, puedes redirigirlo a la pantalla de login o mostrar un mensaje
+            Toast.makeText(this, "No has iniciado sesión", Toast.LENGTH_SHORT).show();
+            // Puedes redirigir a la pantalla de login
+            startActivity(new Intent(foroGeneral.this, iniciar_sesion.class));
+            finish();
+        }
 
         // Configurar RecyclerView
         recyclerViewForum = findViewById(R.id.recyclerView_forum);
