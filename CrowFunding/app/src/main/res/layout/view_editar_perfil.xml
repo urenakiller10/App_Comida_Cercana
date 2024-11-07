@@ -7,91 +7,48 @@
 
     <!-- Título -->
     <TextView
-        android:id="@+id/tvTituloRegistro"
+        android:id="@+id/tvTituloEditarPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="Editar Perfil"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="24dp"
         android:gravity="center" />
 
     <!-- Contenedor del formulario -->
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="571dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_border"
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Nombre -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre" />
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/etNombreEditar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginBottom="16dp"
             android:hint="Nombre"
             android:inputType="text" />
 
-        <!-- Correo -->
-        <TextView
-            android:id="@+id/tvCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correo" />
 
-        <EditText
-            android:id="@+id/etCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Correo"
-            android:inputType="textEmailAddress" />
 
-        <!-- Contraseña -->
-        <TextView
-            android:id="@+id/tvContrasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contraseña" />
-
-        <EditText
-            android:id="@+id/etContrasena"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
-
-        <!-- Cédula -->
-        <TextView
-            android:id="@+id/tvCedula"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confirmar Contraseña" />
-
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Confirmar Contraseña"
-            android:inputType="textPassword" />
 
         <!-- Área de trabajo -->
         <TextView
-            android:id="@+id/tvAreaTrabajo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Área de trabajo" />
 
         <EditText
-            android:id="@+id/etAreaTrabajo"
+            android:id="@+id/etAreaTrabajoEditarr"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginBottom="16dp"
@@ -100,27 +57,26 @@
 
         <!-- Cantidad de dinero inicial -->
         <TextView
-            android:id="@+id/tvDineroInicial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cantidad de dinero inicial" />
 
         <EditText
-            android:id="@+id/etDineroInicial"
+            android:id="@+id/etDineroInicialEditarr"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
+            android:layout_height="55dp"
             android:layout_marginBottom="16dp"
             android:hint="Cantidad de dinero"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
+    <!-- Botón para guardar cambios -->
     <Button
-        android:id="@+id/btnRegistrarse"
+        android:id="@+id/btnGuardarCambioss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Registrarse"
+        android:backgroundTint="#FF9800"
+        android:text="Guardar cambios"
         android:textColor="#FFFFFF" />
-
 </LinearLayout>

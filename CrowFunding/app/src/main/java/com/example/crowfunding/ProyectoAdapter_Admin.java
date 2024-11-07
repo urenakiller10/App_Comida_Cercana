@@ -1,7 +1,8 @@
 package com.example.crowfunding;
 
+
+
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ProyectoViewHolder> {
+public class ProyectoAdapter_Admin extends RecyclerView.Adapter<ProyectoAdapter_Admin.ProyectoViewHolder> {
     private List<Proyecto> proyectos;
     private Context context;
 
-    public ProyectoAdapter(List<Proyecto> proyectos, Context context) {
+    public ProyectoAdapter_Admin(List<Proyecto> proyectos, Context context) {
         this.proyectos = proyectos;
         this.context = context;
     }
@@ -39,20 +40,7 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
         holder.textObjetivo.setText(proyecto.getObjetivoFinanciacion());
         holder.textFechaCreacion.setText(proyecto.getFechaCreacion());
 
-        // Agrega un listener para abrir DetalleProyectoActivity al hacer clic en el item
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetalleProyectoActivity.class);
-
-            // No es necesario verificar el ID aquí si estás seguro de que no será nulo
-            intent.putExtra("proyectoId", proyecto.getIdProyecto());
-            context.startActivity(intent);
-
-
-
-
-
-
-        });
+        // Aquí NO se configura ningún listener de clic para itemView, solo se muestran los datos.
     }
 
     @Override

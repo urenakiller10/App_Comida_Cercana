@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Elemento de menú para "Inicio" -->
+    <item
+        android:id="@+id/nav_home_admin"
+        android:title="Inicio"
+        />
+
+    <!-- Elemento de menú para "Donaciones" -->
+    <item
+        android:id="@+id/nav_donaciones"
+        android:title="Donaciones"/>
+
+    <!-- Elemento de gestionar usuarios --><item
+
+    android:id="@+id/nav_usuarios"
+    android:title="Gestionar usuarios"/>
+
+    <!-- Elemento de ver estadísticas" --><item
+
+    android:id="@+id/nav_estadisticas"
+    android:title="Estadísticas"/>
+
+    <!-- Elemento de menú para "Cerrar Sesión" -->
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar Sesión"/>
+</menu>
