@@ -95,11 +95,16 @@ public class MainScreenActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
+                }else if (id == R.id.nav_mis_donaciones) {
+                    Intent intent = new Intent(MainScreenActivity.this, DonacionesUsuarioActivity.class);
+                    startActivity(intent);
+
                 }
 
                 drawerLayout.closeDrawer(GravityCompat.START); // Cierra el menú después de seleccionar una opción
                 return true;
             }
+
         });
 
         // Buscar el botón en el layout
