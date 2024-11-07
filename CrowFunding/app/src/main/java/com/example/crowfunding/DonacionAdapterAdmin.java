@@ -40,7 +40,7 @@ public class DonacionAdapterAdmin extends RecyclerView.Adapter<DonacionAdapterAd
         String fechaFormateada = sdf.format(donacion.getFecha());
 
         // Componer el texto para mostrar
-        String projectNameAndAmount = "Proyecto ID: " + donacion.getNombreProyecto() + " \nMonto Donado: $" + donacion.getMonto();
+        String projectNameAndAmount = "Proyecto:  " + donacion.getNombreProyecto() + " \nMonto Donado: $" + donacion.getMonto();
         String donationDate = "El " + fechaFormateada + ", realizaste una donación";
 
         // Asignar los valores a los TextViews
