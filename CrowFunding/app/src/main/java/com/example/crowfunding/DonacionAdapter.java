@@ -1,6 +1,5 @@
 package com.example.crowfunding;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +8,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.crowfunding.Donacion;
-import com.example.crowfunding.R;
-
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
 public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.DonacionViewHolder> {
 
-    private List<Donacion> donacionesList;
+    private List<DonacionData> donacionesList;
     private Context context;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
-    public DonacionAdapter(List<Donacion> donacionesList, Context context) {
+    public DonacionAdapter(List<DonacionData> donacionesList, Context context) {
         this.donacionesList = donacionesList;
         this.context = context;
     }
@@ -35,9 +32,14 @@ public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.Donaci
 
     @Override
     public void onBindViewHolder(@NonNull DonacionViewHolder holder, int position) {
-        Donacion donacion = donacionesList.get(position);
-        holder.tvProjectNameAndAmount.setText("Proyecto: " + donacion.getIdProyecto() + " - Monto: $" + donacion.getMonto());
-        holder.tvDonationDate.setText("Fecha: " + donacion.getFecha().toString());
+        DonacionData donacion = donacionesList.get(position);
+
+        // Establecer el texto para mostrar el nombre del proyecto y el monto
+        holder.tvProjectNameAndAmount.setText("Proyecto: " + donacion.getNombreProyecto() + " - Monto: $" + donacion.getMonto());
+
+        // Establecer el texto para mostrar el nombre del usuario y la fecha
+        String formattedDate = dateFormat.format(donacion.getFecha());
+        holder.tvDonationDate.setText("Donado por: " + donacion.getNombrePersona() + " el " + formattedDate);
     }
 
     @Override

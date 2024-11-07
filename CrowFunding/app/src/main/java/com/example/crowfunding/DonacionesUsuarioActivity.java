@@ -19,11 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DonacionesUsuarioActivity extends AppCompatActivity {
+
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private RecyclerView recyclerView;
     private DonacionAdapter donacionAdapter;
-    private List<Donacion> donacionesList;
+    private List<DonacionData> donacionesList;
+    private String nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,20 @@ public class DonacionesUsuarioActivity extends AppCompatActivity {
         recyclerView.setAdapter(donacionAdapter);
 
         String userId = auth.getCurrentUser().getUid();
-        loadDonaciones(userId);
+
+        // Consulta para obtener el nombre del usuario
+        db.collection("users")
+                .whereEqualTo("idUser", userId)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                        nombreUsuario = task.getResult().getDocuments().get(0).getString("name");
+                        // Cargar las donaciones después de obtener el nombre del usuario
+                        loadDonaciones(userId);
+                    } else {
+                        Toast.makeText(this, "Error al obtener el nombre del usuario", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void loadDonaciones(String userId) {
@@ -49,12 +64,31 @@ public class DonacionesUsuarioActivity extends AppCompatActivity {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        donacionesList.clear();
+                        donacionesList.clear(); // Limpiar lista antes de agregar nuevos datos
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Donacion donacion = document.toObject(Donacion.class);
-                            donacionesList.add(donacion);
+                            String idProyecto = donacion.getIdProyecto();
+
+                            // Obtener el nombre del proyecto
+                            db.collection("proyectos").document(idProyecto).get().addOnCompleteListener(projectTask -> {
+                                if (projectTask.isSuccessful() && projectTask.getResult() != null) {
+                                    String nombreProyecto = projectTask.getResult().getString("nombre");
+
+                                    // Crear el objeto DonacionData con los datos obtenidos
+                                    DonacionData donacionData = new DonacionData(
+                                            donacion.getFecha(),
+                                            donacion.getMonto(),
+                                            nombreUsuario,    // Usa el nombre del usuario obtenido en onCreate
+                                            nombreProyecto
+                                    );
+
+                                    donacionesList.add(donacionData);
+                                    donacionAdapter.notifyDataSetChanged();
+                                } else {
+                                    Toast.makeText(DonacionesUsuarioActivity.this, "Error al obtener nombre del proyecto", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
-                        donacionAdapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(DonacionesUsuarioActivity.this, "Error al cargar las donaciones", Toast.LENGTH_SHORT).show();
                     }
