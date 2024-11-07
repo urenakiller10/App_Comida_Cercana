@@ -35,6 +35,8 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     // Añadir productos de Firebase sin especificar versiones
     implementation("com.google.firebase:firebase-analytics-ktx")

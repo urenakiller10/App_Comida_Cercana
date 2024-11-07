@@ -11,18 +11,25 @@
         android:id="@+id/nav_profile"
         android:title="Perfil"/>
 
-    <!-- Elemento de menú para "Configuraciones" -->
+    <!-- Elemento de menú para "Mis Proyectos" -->
     <item
         android:id="@+id/nav_MisProyectos"
         android:title="Mis Proyectos"/>
 
-    <!-- Elemento de cartera" --><item
+    <!-- Elemento de cartera -->
+    <item
         android:id="@+id/nav_cartera"
         android:title="Cartera"/>
 
-    <!-- Elemento de ver registro donaciones" --><item
-    android:id="@+id/nav_donaciones"
-    android:title="Donaciones"/>
+    <!-- Elemento de ver registro de donaciones -->
+    <item
+        android:id="@+id/nav_donaciones"
+        android:title="Donaciones"/>
+
+    <!-- Nueva opción de menú para "Mis Donaciones" -->
+    <item
+        android:id="@+id/nav_mis_donaciones"
+        android:title="Mis Donaciones"/>
 
     <!-- Elemento de menú para "Cerrar Sesión" -->
     <item

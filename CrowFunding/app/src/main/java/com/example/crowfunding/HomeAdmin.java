@@ -96,7 +96,14 @@ public class HomeAdmin extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
+
+                } else if (id == R.id.nav_mis_donaciones) {
+                    Toast.makeText(HomeAdmin.this, "Mis Donaciones", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeAdmin.this, DonacionesUsuarioActivity.class);
+                    startActivity(intent);
                 }
+
+
 
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;

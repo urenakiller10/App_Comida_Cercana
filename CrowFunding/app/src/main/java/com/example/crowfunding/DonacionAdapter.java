@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,51 +13,45 @@ import java.util.List;
 import java.util.Locale;
 
 public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.DonacionViewHolder> {
-    private List<Donacion> donaciones;
-    private Context context;
 
-    // Constructor del adaptador
-    public DonacionAdapter(List<Donacion> donaciones, Context context) {
-        this.donaciones = donaciones;
+    private List<DonacionData> donacionesList;
+    private Context context;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+    public DonacionAdapter(List<DonacionData> donacionesList, Context context) {
+        this.donacionesList = donacionesList;
         this.context = context;
     }
 
     @NonNull
     @Override
     public DonacionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflar el layout para cada item de donación
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_donacion, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_donation, parent, false);
         return new DonacionViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DonacionViewHolder holder, int position) {
-        Donacion donacion = donaciones.get(position);
+        DonacionData donacion = donacionesList.get(position);
 
-        // Formatear la fecha
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        String fechaFormateada = sdf.format(donacion.getFecha());
+        // Establecer el texto para mostrar el nombre del proyecto y el monto
+        holder.tvProjectNameAndAmount.setText("Proyecto: " + donacion.getNombreProyecto() + " - Monto: $" + donacion.getMonto());
 
-        // Componer el texto para mostrar
-        String projectNameAndAmount = "Proyecto ID: " + donacion.getIdProyecto() + " - Monto Donado: $" + donacion.getMonto();
-        String donationDate = "El " + fechaFormateada + ", realizaste una donación";
-
-        // Asignar los valores a los TextViews
-        holder.tvProjectNameAndAmount.setText(projectNameAndAmount);
-        holder.tvDonationDate.setText(donationDate);
+        // Establecer el texto para mostrar el nombre del usuario y la fecha
+        String formattedDate = dateFormat.format(donacion.getFecha());
+        holder.tvDonationDate.setText("Donado por: " + donacion.getNombrePersona() + " el " + formattedDate);
     }
 
     @Override
     public int getItemCount() {
-        return donaciones.size();
+        return donacionesList.size();
     }
 
-    static class DonacionViewHolder extends RecyclerView.ViewHolder {
+    public static class DonacionViewHolder extends RecyclerView.ViewHolder {
         TextView tvProjectNameAndAmount, tvDonationDate;
 
         public DonacionViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Mapeo de los elementos del layout
             tvProjectNameAndAmount = itemView.findViewById(R.id.tvProjectNameAndAmount);
             tvDonationDate = itemView.findViewById(R.id.tvDonationDate);
         }
