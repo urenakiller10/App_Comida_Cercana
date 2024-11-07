@@ -145,8 +145,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp" />
 
-
-
+    <Button
+        android:id="@+id/btnForoProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foro del proyecto"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
 

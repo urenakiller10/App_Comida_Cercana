@@ -75,7 +75,7 @@ public class comentarioAdapter extends RecyclerView.Adapter<comentarioAdapter.Co
                     holder.comentarioTextView.setText("Error al cargar el usuario");
                 });
 
-        db.collection("comentariosForoGeneral").document(comentarioActual.getId()).get()
+        db.collection("comentariosForos").document(comentarioActual.getId()).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         int likes = documentSnapshot.getLong("likes").intValue();
@@ -83,7 +83,6 @@ public class comentarioAdapter extends RecyclerView.Adapter<comentarioAdapter.Co
                         comentarioActual.setLikes(likes);
                         comentarioActual.setDislikes(dislikes);
 
-                        // Mostrar los valores actuales en el TextView
                         holder.like_count_text_view.setText("Likes: " + likes);
                         holder.dislike_count_text_view.setText("Dislikes: " + dislikes);
                     }
@@ -100,7 +99,7 @@ public class comentarioAdapter extends RecyclerView.Adapter<comentarioAdapter.Co
         holder.likeButton.setOnClickListener(v -> {
             int newLikes = comentarioActual.getLikes() + 1;
             comentarioActual.setLikes(newLikes);
-            db.collection("comentariosForoGeneral").document(comentarioActual.getId())
+            db.collection("comentariosForos").document(comentarioActual.getId())
                     .update("likes", newLikes)
                     .addOnSuccessListener(aVoid -> {
                         holder.like_count_text_view.setText("Likes: " + comentarioActual.getLikes());
@@ -114,7 +113,7 @@ public class comentarioAdapter extends RecyclerView.Adapter<comentarioAdapter.Co
         holder.dislikeButton.setOnClickListener(v -> {
             int newDislikes = comentarioActual.getDislikes() + 1;
             comentarioActual.setDislikes(newDislikes);
-            db.collection("comentariosForoGeneral").document(comentarioActual.getId())
+            db.collection("comentariosForos").document(comentarioActual.getId())
                     .update("dislikes", newDislikes)
                     .addOnSuccessListener(aVoid -> {
                         holder.dislike_count_text_view.setText("Dislikes: " + comentarioActual.getDislikes());

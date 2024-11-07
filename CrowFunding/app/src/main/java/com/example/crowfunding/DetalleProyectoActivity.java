@@ -22,7 +22,6 @@ public class DetalleProyectoActivity extends AppCompatActivity {
     private static final String TAG = "DetalleProyectoActivity";
 
     // Campos de donación
-
     private EditText etDineroDonacion;
     private TextView textNombre, textDescripcion, textFechaLimite, textObjetivo, textFechaCreacion;
     private String proyectoId;
@@ -52,7 +51,6 @@ public class DetalleProyectoActivity extends AppCompatActivity {
             finish();
             return;
         }
-
         // Enlaza los elementos de la interfaz de usuario
 
         textNombre = findViewById(R.id.textNombre);
@@ -83,6 +81,16 @@ public class DetalleProyectoActivity extends AppCompatActivity {
                 int calificacion = (int) ratingBar.getRating();
                 String comentario = editComentario.getText().toString();
                 agregarComentarioYCalificacion(comentario, calificacion);
+            }
+        });
+
+        Button btnForoProyecto = findViewById(R.id.btnForoProyecto);
+        btnForoProyecto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetalleProyectoActivity.this, foroProyecto.class);
+                intent.putExtra("proyectoId", proyectoId);
+                startActivity(intent);
             }
         });
 

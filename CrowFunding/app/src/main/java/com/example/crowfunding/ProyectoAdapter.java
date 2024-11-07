@@ -47,11 +47,6 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
             intent.putExtra("proyectoId", proyecto.getIdProyecto());
             context.startActivity(intent);
 
-
-
-
-
-
         });
     }
 

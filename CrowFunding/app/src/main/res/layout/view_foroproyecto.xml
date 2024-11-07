@@ -19,7 +19,7 @@
         android:titleTextColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/tvTituloEditarProyecto"
+        android:id="@+id/tvTituloForo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
