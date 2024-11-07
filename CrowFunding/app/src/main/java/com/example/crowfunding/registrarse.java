@@ -115,7 +115,6 @@ public class registrarse extends AppCompatActivity {
                             userData.put("email", email);
                             userData.put("idUser", userId);
                             userData.put("AreaDeTrabajo", areaDeTrabajo);
-                            userData.put("estado", "activo");
 
                             // Convertir el saldo inicial a un número antes de guardarlo
                             double initialMoneyValue = Double.parseDouble(initialMoney);
