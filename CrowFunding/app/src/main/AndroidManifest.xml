@@ -4,7 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:enableOnBackInvokedCallback="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -36,7 +35,11 @@
         <activity android:name=".EditarPerfil" />
         <activity android:name=".HomeAdmin" />
         <activity android:name=".ProyectoAdapter_Admin" />
-        <activity android:name=".DonacionesUsuarioActivity" />
+
+        <activity android:name=".Donaciones_Admin" />
+        <activity android:name=".Estadisticas_Admin" />
+        <activity android:name=".GestionUsuarios_Admin" />
+
 
     </application>
 
