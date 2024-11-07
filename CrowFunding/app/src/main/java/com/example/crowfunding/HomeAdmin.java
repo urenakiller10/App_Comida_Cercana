@@ -77,17 +77,17 @@ public class HomeAdmin extends AppCompatActivity {
 
                 } else if (id == R.id.nav_donaciones) {
                     Toast.makeText(HomeAdmin.this, "Donaciones seleccionado", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(HomeAdmin.this, perfil.class);
+                    Intent intent = new Intent(HomeAdmin.this, Donaciones_Admin.class);
                     startActivity(intent);
 
                 } else if (id == R.id.nav_usuarios) {
                     Toast.makeText(HomeAdmin.this, "Gestión de usuarios seleccionado", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(HomeAdmin.this, misProyectos.class);
+                    Intent intent = new Intent(HomeAdmin.this, GestionUsuarios_Admin.class);
                     startActivity(intent);
 
                 } else if (id == R.id.nav_estadisticas) {
                     Toast.makeText(HomeAdmin.this, "Estadísticas seleccionado", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(HomeAdmin.this, cartera.class);
+                    Intent intent = new Intent(HomeAdmin.this, Estadisticas_Admin.class);
                     startActivity(intent);
 
                 } else if (id == R.id.nav_logout) {

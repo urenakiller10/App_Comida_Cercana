@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/border">
+
+    <!-- Contenedor de fecha/hora y conteo de likes/dislikes -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start">
+
+        <!-- Fecha y hora del comentario -->
+        <TextView
+            android:id="@+id/fecha_hora_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#808080"
+            android:layout_marginEnd="16dp"
+            android:text="01/01/2023 12:00" />
+
+        <!-- Contenedor de likes/dislikes alineado a la derecha -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <!-- TextView de likes -->
+            <TextView
+                android:id="@+id/like_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#808080"
+                android:layout_marginEnd="8dp"
+                android:text="Likes: 10" />
+
+            <!-- TextView de dislikes -->
+            <TextView
+                android:id="@+id/dislike_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#808080"
+                android:text="Dislikes: 2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Texto del comentario y nombre de usuario -->
+    <TextView
+        android:id="@+id/texto_comentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+
+    <!-- Botones para likes y dislikes -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/like_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like" />
+
+        <Button
+            android:id="@+id/dislike_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dislike" />
+
+        <Button
+            android:id="@+id/responder_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responder" />
+    </LinearLayout>
+
+    <!-- Contenedor para respuestas anidadas -->
+    <LinearLayout
+        android:id="@+id/respuestas_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

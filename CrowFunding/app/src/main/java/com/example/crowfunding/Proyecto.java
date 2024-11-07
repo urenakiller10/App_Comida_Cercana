@@ -91,5 +91,6 @@ public class Proyecto {
         return dineroDonado;
     }
 
-
+    public String getIdUser(){return  idUser;};
+    public void setIdUser(String idUser){this.idUser=idUser;};
 }

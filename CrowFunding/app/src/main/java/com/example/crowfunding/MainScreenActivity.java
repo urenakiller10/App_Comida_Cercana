@@ -89,13 +89,19 @@ public class MainScreenActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainScreenActivity.this, donaciones.class);
                     startActivity(intent);
 
+                }else if (id == R.id.nav_foroGeneral) {  // Nueva opción
+                    Toast.makeText(MainScreenActivity.this, "Foro General", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainScreenActivity.this, foroGeneral.class);
+                    startActivity(intent);
+
                 } else if (id == R.id.nav_logout) {
                     mAuth.signOut();
                     Intent intent = new Intent(MainScreenActivity.this, iniciar_sesion.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
-                }
+            }
+
 
                 drawerLayout.closeDrawer(GravityCompat.START); // Cierra el menú después de seleccionar una opción
                 return true;

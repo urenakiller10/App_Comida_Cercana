@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="Foro General"
+        android:titleTextColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvTituloEditarProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Foro General"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_forum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/forum_input_layout"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:id="@+id/forum_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#F0F0F0">
+
+        <EditText
+            android:id="@+id/forum_input_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Escribe un comentario..."
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        <!-- android:background="@drawable/edit_text_background"-->
+
+        <!-- Botón para enviar el comentario o tema -->
+        <Button
+            android:id="@+id/forum_send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:text="Enviar"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:padding="10dp" />
+    </LinearLayout>
+
+</RelativeLayout>
