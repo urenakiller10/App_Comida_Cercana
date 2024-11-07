@@ -1,0 +1,72 @@
+package com.example.crowfunding;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Locale;
+
+public class DonacionAdapterUser extends RecyclerView.Adapter<DonacionAdapterUser.DonacionViewHolder> {
+    private List<DonacionData> donaciones;
+    private Context context;
+
+    // Constructor del adaptador
+    public DonacionAdapterUser(List<DonacionData> donaciones, Context context) {
+        this.donaciones = donaciones;
+        this.context = context;
+    }
+
+    @NonNull
+    @Override
+    public DonacionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflar el layout para cada item de donación
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_donacion, parent, false);
+        return new DonacionViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull DonacionViewHolder holder, int position) {
+        DonacionData donacion = donaciones.get(position);
+
+        // Formatear la fecha
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        String fechaFormateada = sdf.format(donacion.getFecha());
+
+        // Componer el texto para mostrar
+        String projectNameAndAmount = "Proyecto:  " + donacion.getNombreProyecto() + " \nMonto Donado: $" + donacion.getMonto();
+        String donationDate = "El " + fechaFormateada + ", realizaste una donación";
+
+        // Asignar los valores a los TextViews
+        holder.tvProjectNameAndAmount.setText(projectNameAndAmount);
+        holder.tvDonationDate.setText(donationDate);
+
+        // Asignar el nombre del donante (quemado)
+        //String donorName = "Juan Pérez";  // Nombre fijo del donante
+        holder.tvDonorName.setText("Nombre del Donante: " + donacion.getNombrePersona());
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return donaciones.size();
+    }
+
+    static class DonacionViewHolder extends RecyclerView.ViewHolder {
+        TextView tvProjectNameAndAmount, tvDonationDate, tvDonorName;
+
+        public DonacionViewHolder(@NonNull View itemView) {
+            super(itemView);
+            // Mapeo de los elementos del layout
+            tvProjectNameAndAmount = itemView.findViewById(R.id.tvProjectNameAndAmount);
+            tvDonationDate = itemView.findViewById(R.id.tvDonationDate);
+            tvDonorName = itemView.findViewById(R.id.tvDonorName);
+        }
+    }
+}
