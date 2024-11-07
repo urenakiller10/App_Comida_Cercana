@@ -39,7 +39,7 @@
         <activity android:name=".Donaciones_Admin" />
         <activity android:name=".Estadisticas_Admin" />
         <activity android:name=".GestionUsuarios_Admin" />
-
+        <activity android:name=".foroProyecto" />
 
     </application>
 
