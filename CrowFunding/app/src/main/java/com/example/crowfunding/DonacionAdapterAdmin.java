@@ -13,12 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.DonacionViewHolder> {
-    private List<Donacion> donaciones;
+public class DonacionAdapterAdmin extends RecyclerView.Adapter<DonacionAdapterAdmin.DonacionViewHolder> {
+    private List<DonacionData> donaciones;
     private Context context;
 
     // Constructor del adaptador
-    public DonacionAdapter(List<Donacion> donaciones, Context context) {
+    public DonacionAdapterAdmin(List<DonacionData> donaciones, Context context) {
         this.donaciones = donaciones;
         this.context = context;
     }
@@ -33,20 +33,25 @@ public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.Donaci
 
     @Override
     public void onBindViewHolder(@NonNull DonacionViewHolder holder, int position) {
-        Donacion donacion = donaciones.get(position);
+        DonacionData donacion = donaciones.get(position);
 
         // Formatear la fecha
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         String fechaFormateada = sdf.format(donacion.getFecha());
 
         // Componer el texto para mostrar
-        String projectNameAndAmount = "Proyecto ID: " + donacion.getIdProyecto() + " - Monto Donado: $" + donacion.getMonto();
+        String projectNameAndAmount = "Proyecto ID: " + donacion.getNombreProyecto() + " \nMonto Donado: $" + donacion.getMonto();
         String donationDate = "El " + fechaFormateada + ", realizaste una donación";
 
         // Asignar los valores a los TextViews
         holder.tvProjectNameAndAmount.setText(projectNameAndAmount);
         holder.tvDonationDate.setText(donationDate);
+
+        // Asignar el nombre del donante (quemado)
+        //String donorName = "Juan Pérez";  // Nombre fijo del donante
+        holder.tvDonorName.setText("Nombre del Donante: " + donacion.getNombrePersona());
     }
+
 
     @Override
     public int getItemCount() {
@@ -54,13 +59,14 @@ public class DonacionAdapter extends RecyclerView.Adapter<DonacionAdapter.Donaci
     }
 
     static class DonacionViewHolder extends RecyclerView.ViewHolder {
-        TextView tvProjectNameAndAmount, tvDonationDate;
+        TextView tvProjectNameAndAmount, tvDonationDate, tvDonorName;
 
         public DonacionViewHolder(@NonNull View itemView) {
             super(itemView);
             // Mapeo de los elementos del layout
             tvProjectNameAndAmount = itemView.findViewById(R.id.tvProjectNameAndAmount);
             tvDonationDate = itemView.findViewById(R.id.tvDonationDate);
+            tvDonorName = itemView.findViewById(R.id.tvDonorName);
         }
     }
 }
