@@ -67,4 +67,12 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
             textFechaCreacion = itemView.findViewById(R.id.textFechaCreacion);
         }
     }
+
+    // Método para actualizar los datos del adaptador
+    public void updateData(List<Proyecto> newData) {
+        this.proyectos.clear();
+        this.proyectos.addAll(newData);
+        notifyDataSetChanged();
+    }
+
 }

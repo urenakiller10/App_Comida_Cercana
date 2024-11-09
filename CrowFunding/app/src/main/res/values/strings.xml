@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">CrowdFunding</string>
 
+    <string name="select_category">Selecciona una categoría</string>
+
+    <string name="select_filter_type">Selecciona tipo de filtro</string>
+
     <!-- Opciones para el Spinner de área de trabajo en registrarse -->
     <string-array name="areas_de_trabajo">
         <item>Seleccione su área de trabajo</item>

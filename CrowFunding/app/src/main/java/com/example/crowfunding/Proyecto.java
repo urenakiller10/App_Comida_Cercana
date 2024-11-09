@@ -27,8 +27,6 @@ public class Proyecto {
         this.objetivoFinanciacion = objetivoFinanciacion;
         this.categoria = categoria;
         this.dineroDonado = dineroDonado;
-
-
     }
 
     // Getters y Setters

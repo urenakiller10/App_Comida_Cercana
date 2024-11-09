@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_options">
+        <item></item>
+        <item>Educación</item>
+        <item>Salud</item>
+        <item>Deporte</item>
+    </string-array>
+
+    <string-array name="filter_type_options">
+        <item>Categoría</item>
+        <item>Monto</item>
+        <item>Fecha límite</item>
+    </string-array>
+
+</resources>
