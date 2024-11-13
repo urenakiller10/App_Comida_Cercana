@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Luis Ureña"
+            android:text="Usuario"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -51,14 +51,15 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-
-
-        <Button
-            android:id="@+id/btnAgregarRol"
+        <!-- Título de Roles -->
+        <TextView
+            android:id="@+id/tvRoles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar"
-            android:backgroundTint="@android:color/holo_orange_light" />
+            android:text="Roles:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -76,14 +77,15 @@
         android:gravity="center_vertical"
         android:paddingBottom="8dp">
 
-
-
-        <Button
-            android:id="@+id/btnAgregarPermiso"
+        <!-- Título de Permisos -->
+        <TextView
+            android:id="@+id/tvPermisos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar"
-            android:backgroundTint="@android:color/holo_orange_light" />
+            android:text="Permisos:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

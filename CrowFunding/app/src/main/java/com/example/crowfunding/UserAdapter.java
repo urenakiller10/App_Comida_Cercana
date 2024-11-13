@@ -1,5 +1,6 @@
 package com.example.crowfunding;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         Usuario user = userList.get(position);
         holder.userName.setText(user.getName());
-        // Aquí puedes agregar más lógica para el botón de gestionar si es necesario
+        holder.manageButton.setOnClickListener(v -> {
+            String idUser = user.getIdUser();
+            Intent intent = new Intent(v.getContext(), GestionRolesPermisosActivity.class);
+            intent.putExtra("userId", idUser);
+            v.getContext().startActivity(intent);
+        });
+
     }
 
     @Override

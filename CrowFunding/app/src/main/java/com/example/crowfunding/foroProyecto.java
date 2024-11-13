@@ -66,8 +66,8 @@ public class foroProyecto extends AppCompatActivity {
         forumInputText = findViewById(R.id.forum_input_text);
         forumSendButton = findViewById(R.id.forum_send_button);
 
-        db.collection("proyectos")  // Cambia "proyectos" por el nombre correcto de tu colección
-                .document(proyectoId)  // Buscar el documento con el idProyecto
+        db.collection("proyectos")
+                .document(proyectoId)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -83,7 +83,6 @@ public class foroProyecto extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
-                    // En caso de error en la consulta
                     Toast.makeText(foroProyecto.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
 

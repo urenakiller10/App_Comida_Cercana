@@ -45,37 +45,31 @@ public class foroGeneral extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_forogeneral);
 
-        // Inicializar FirebaseAuth y Firestore
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
         if (mAuth.getCurrentUser() == null) {
-            // Si no hay usuario autenticado, puedes redirigirlo a la pantalla de login o mostrar un mensaje
             Toast.makeText(this, "No has iniciado sesión", Toast.LENGTH_SHORT).show();
-            // Puedes redirigir a la pantalla de login
             startActivity(new Intent(foroGeneral.this, iniciar_sesion.class));
             finish();
         }
 
-        // Configurar RecyclerView
         recyclerViewForum = findViewById(R.id.recyclerView_forum);
         recyclerViewForum.setLayoutManager(new LinearLayoutManager(this));
         comentarioList = new ArrayList<>();
         comentarioAdapter = new comentarioAdapter(this, comentarioList);
         recyclerViewForum.setAdapter(comentarioAdapter);
 
-        // Inicializar campo de entrada y botón de enviar
         forumInputText = findViewById(R.id.forum_input_text);
         forumSendButton = findViewById(R.id.forum_send_button);
 
-        // Configurar el botón de enviar
         forumSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String textoComentario = forumInputText.getText().toString().trim();
                 if (!textoComentario.isEmpty()) {
                     enviarComentario(textoComentario);
-                    forumInputText.setText(""); // Limpiar campo de texto después de enviar
+                    forumInputText.setText("");
                 } else {
                     Toast.makeText(foroGeneral.this, "Escribe un comentario", Toast.LENGTH_SHORT).show();
                 }
@@ -116,7 +110,7 @@ public class foroGeneral extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     String generatedId = documentReference.getId();
                     documentReference.update("id", generatedId);
-                    nuevoComentario.setId(generatedId); // Asignar el ID generado a nuevoComentario
+                    nuevoComentario.setId(generatedId);
                     comentarioList.add(nuevoComentario);
                     comentarioAdapter.notifyItemInserted(comentarioList.size() - 1);
                     recyclerViewForum.scrollToPosition(comentarioList.size() - 1);

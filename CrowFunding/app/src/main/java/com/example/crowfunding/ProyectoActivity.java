@@ -50,9 +50,6 @@ public class ProyectoActivity extends AppCompatActivity {
                 String comentario = editComentario.getText().toString();
                 String idUser = auth.getCurrentUser().getUid();
 
-
-
-
                 agregarComentarioYCalificacion(comentario, calificacion);
             }
         });

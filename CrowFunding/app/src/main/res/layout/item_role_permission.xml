@@ -16,10 +16,10 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnAgregarEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
-        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="Agregar"
+        android:backgroundTint="#FFEB3B"
         android:textColor="@android:color/white" />
 </LinearLayout>

@@ -45,16 +45,15 @@ public class GestionUsuarios_Admin extends AppCompatActivity {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // Limpiar la lista de usuarios antes de agregar los nuevos datos
                         users.clear();
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            // Extraer el nombre del usuario y cualquier otro dato necesario
                             String name = document.getString("name");
+                            String userId = document.getId();  // Obtener el ID del documento
+
                             if (name != null) {
-                                users.add(new Usuario(name));
+                                users.add(new Usuario(name, userId)); // Aquí pasas el id al constructor de Usuario
                             }
                         }
-                        // Notificar al adaptador que los datos han cambiado
                         adapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(GestionUsuarios_Admin.this, "Error al cargar usuarios", Toast.LENGTH_SHORT).show();
