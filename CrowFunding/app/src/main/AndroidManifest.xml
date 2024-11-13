@@ -35,11 +35,12 @@
         <activity android:name=".EditarPerfil" />
         <activity android:name=".HomeAdmin" />
         <activity android:name=".ProyectoAdapter_Admin" />
-
+        <activity android:name=".foroGeneral"/>
         <activity android:name=".Donaciones_Admin" />
         <activity android:name=".Estadisticas_Admin" />
         <activity android:name=".GestionUsuarios_Admin" />
-
+        <activity android:name=".DonacionesUser" />
+        <activity android:name=".foroProyecto" />
 
     </application>
 

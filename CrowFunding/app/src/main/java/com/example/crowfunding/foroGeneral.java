@@ -85,14 +85,16 @@ public class foroGeneral extends AppCompatActivity {
     }
 
     private void cargarComentarios() {
-        db.collection("comentariosForoGeneral")
+        db.collection("comentariosForos")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         comentarioList.clear();
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             comentario comentario = document.toObject(comentario.class);
-                            comentarioList.add(comentario);
+                            if ("0".equals(comentario.getIdProyecto())) {
+                                comentarioList.add(comentario);
+                            }
                         }
                         comentarioAdapter.notifyDataSetChanged();
                     } else {
@@ -107,9 +109,9 @@ public class foroGeneral extends AppCompatActivity {
     private void enviarComentario(String textoComentario) {
         String userId = mAuth.getCurrentUser().getUid();
         Timestamp fechaHora = Timestamp.now();
-        comentario nuevoComentario = new comentario(null, textoComentario, userId, fechaHora); // ID se establece después
+        comentario nuevoComentario = new comentario(null, textoComentario, userId, fechaHora, "0"); // ID se establece después
 
-        db.collection("comentariosForoGeneral")
+        db.collection("comentariosForos")
                 .add(nuevoComentario)
                 .addOnSuccessListener(documentReference -> {
                     String generatedId = documentReference.getId();
