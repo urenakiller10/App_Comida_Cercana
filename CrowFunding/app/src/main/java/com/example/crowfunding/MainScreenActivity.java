@@ -102,7 +102,7 @@ public class MainScreenActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } else if (id == R.id.nav_donaciones) {
-                    Intent intent = new Intent(MainScreenActivity.this, donaciones.class);
+                    Intent intent = new Intent(MainScreenActivity.this, DonacionesUser.class);
                     startActivity(intent);
 
                 }else if (id == R.id.nav_foroGeneral) {  // Nueva opción
